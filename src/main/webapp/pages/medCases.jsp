@@ -7,3 +7,4 @@
 <%--    <link rel="icon" type="image/png" href="<c:url value="/res/favicon.png"/>"/>--%>
 </head>
 <h2>Cases</h2>
+<a href="/">Back</a>

@@ -6,4 +6,4 @@
 <%--    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>--%>
 <%--    <link rel="icon" type="image/png" href="<c:url value="/res/favicon.png"/>"/>--%>
 </head>
-<h2>Cases</h2>
+<h2>Dashboard</h2>

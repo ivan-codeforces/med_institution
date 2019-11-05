@@ -2,8 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>edit</title>
+    <title>Cases</title>
 <%--    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>--%>
 <%--    <link rel="icon" type="image/png" href="<c:url value="/res/favicon.png"/>"/>--%>
 </head>
-<h2>EditCase</h2>
+<h2>Cases</h2>
+<a href="/">Back</a>

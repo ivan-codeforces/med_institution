@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com")
+@ComponentScan(basePackages = "com.github")
 public class WebConfig implements WebMvcConfigurer {
 
 //    @Override
