@@ -1,7 +1,7 @@
 <html>
 <body>
-<h2>Hello World!</h2>
-<h3>${medCase}</h3>
+<h2>Main page</h2>
+
 <a href="pages/medCases.jsp">Cases</a>
 <a href="pages/dashboard.jsp">Dashboard</a>
 </body>
