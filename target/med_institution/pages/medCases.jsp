@@ -7,28 +7,20 @@
 <%--    <link rel="icon" type="image/png" href="<c:url value="/res/favicon.png"/>"/>--%>
 </head>
 <h2>Cases</h2>
-
 <body>
-
-
 <table>
     <tr>
-        <th>id</th>
-        <th>status</th>
+        <th>ID</th>
+        <th>Status</th>
         <th>Number Of Case</th>
-
     </tr>
-    <c:forEach var="medCases" items="${medCases}">
+    <c:forEach  items="${medCasesList}" var="medCase">
         <tr>
-            <td>${medCases.id}</td>
-            <td>${medCases.status}</td>
-            <td>${medCases.numberOfCase}</td>
-
+            <td>${medCase.id}</td>
+            <td>${medCase.status}</td>
+            <td>${medCase.numberOfCase}</td>
         </tr>
     </c:forEach>
 </table>
-
-
-
 <a href="/">Index</a>
 </body>

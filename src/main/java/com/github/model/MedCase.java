@@ -1,9 +1,18 @@
 package com.github.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "CASES")
 public class MedCase {
+
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "NU")
     private String numberOfCase;
     private Date dateOfStart;
     private Date dateOfEnd;
@@ -47,5 +56,16 @@ public class MedCase {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "MedCase{" +
+                "id=" + id +
+                ", numberOfCase='" + numberOfCase + '\'' +
+                ", dateOfStart=" + dateOfStart +
+                ", dateOfEnd=" + dateOfEnd +
+                ", status='" + status + '\'' +
+                '}';
     }
 }
