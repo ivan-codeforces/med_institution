@@ -1,41 +1,39 @@
 package com.github.service;
 
+import com.github.bo.CaseBo;
 import com.github.dao.CaseDAO;
 import com.github.model.Case;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class CaseServiceImpl implements CaseService {
     private CaseDAO medCaseDAO;
 
-    @Transactional
     public void setMedCaseDAO(CaseDAO medCaseDAO) {
         this.medCaseDAO = medCaseDAO;
     }
 
     @Override
-    @Transactional
     public void addCase(Case medCase) {
         this.medCaseDAO.addCase(medCase);
     }
 
     @Override
-    @Transactional
     public void removeCase(int id) {
         this.medCaseDAO.removeCase(id);
     }
 
     @Override
-    @Transactional
     public void updateCase(Case medCase) {
         this.medCaseDAO.updateCase(medCase);
     }
 
     @Override
-    @Transactional
     public void handleCase(Case medCase) {
         if(medCase.getId() == 0){
             addCase(medCase);
@@ -44,19 +42,39 @@ public class CaseServiceImpl implements CaseService {
         }
     }
 
-
     @Override
-    @Transactional
-    public Case getCaseById(int id) {
+    public CaseBo getCaseById(int id) {
         Case caseById = this.medCaseDAO.getCaseById(id);
 
-        return caseById;
+        return convertCaseToCaseBo(caseById);
     }
 
     @Override
-    @Transactional
-    public List<Case> listCases() {
+    public List<CaseBo> listCases() {
         List<Case> caseList = this.medCaseDAO.listCases();
-        return caseList;
+
+        List<CaseBo> caseBoList = new ArrayList<>(caseList.size());
+        for (Case mc: caseList
+             ) {
+            caseBoList.add(convertCaseToCaseBo(mc));
+        }
+
+        return caseBoList;
     }
+
+    @Override
+    public CaseBo convertCaseToCaseBo(Case medCase) {
+        CaseBo caseBo = new CaseBo();
+
+        caseBo.setId(medCase.getId());
+        caseBo.setNumberOfCase(medCase.getNumberOfCase());
+        caseBo.setDateOfStart(medCase.getDateOfStart());
+        caseBo.setDateOfEnd(medCase.getDateOfEnd());
+        caseBo.setStatus(medCase.getStatus());
+        caseBo.setOwnerU(medCase.getOwnerU());
+
+        return caseBo;
+    }
+
+
 }

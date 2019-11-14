@@ -8,25 +8,45 @@ import java.util.Date;
 public class Case {
 
     @Id
-    @Column(name = "CASE_ID")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "CASE_NUMBER")
+    @Column(name = "NUMBER")
     private String numberOfCase;
 
-    @Column(name = "CASE_START_DATE")
+    @Column(name = "START_DATE")
     private Date dateOfStart;
 
-    @Column(name = "CASE_FINISH_DATE")
+    @Column(name = "FINISH_DATE")
     private Date dateOfEnd;
 
-    @Column(name = "CASE_STATUS")
+    @Column(name = "STATUS")
     private String status;
 
-//    @OneToMany(targetEntity = Doctor.class)
-//    @Column
-//    private Doctor doctor;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CURRENT_USER")
+    private User ownerU;
+
+    public Partient getOwnerP() {
+        return ownerP;
+    }
+
+    public void setOwnerP(Partient ownerP) {
+        this.ownerP = ownerP;
+    }
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CURRENT_PATIENT")
+    private Partient ownerP;
+
+    public User getOwnerU() {
+        return ownerU;
+    }
+
+    public void setOwnerU(User ownerU) {
+        this.ownerU = ownerU;
+    }
 
     public int getId() {
         return id;
@@ -70,10 +90,13 @@ public class Case {
 
     @Override
     public String toString() {
-        return "MedCase{" +
+        return "Case{" +
                 "id=" + id +
                 ", numberOfCase='" + numberOfCase + '\'' +
+                ", dateOfStart=" + dateOfStart +
+                ", dateOfEnd=" + dateOfEnd +
                 ", status='" + status + '\'' +
+                ", ownerU=" + ownerU +
                 '}';
     }
 }

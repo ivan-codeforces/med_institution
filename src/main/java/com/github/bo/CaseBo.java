@@ -1,15 +1,10 @@
 package com.github.bo;
 
-import com.github.model.Case;
+import com.github.model.User;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Date;
 
 public class CaseBo {
-
 
     private int id;
 
@@ -19,8 +14,37 @@ public class CaseBo {
 
     private Date dateOfEnd;
 
-    @Column(name = "CASE_STATUS")
     private String status;
+
+    private User ownerU;
+
+    public User getOwnerU() {
+        return ownerU;
+    }
+
+    public void setOwnerU(User ownerU) {
+        this.ownerU = ownerU;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNumberOfCase() {
+        return numberOfCase;
+    }
+
+    public Date getDateOfStart() {
+        return dateOfStart;
+    }
+
+    public Date getDateOfEnd() {
+        return dateOfEnd;
+    }
+
+    public String getStatus() {
+        return status;
+    }
 
     public void setId(int id) {
         this.id = id;

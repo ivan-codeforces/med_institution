@@ -1,5 +1,6 @@
 package com.github.service;
 
+import com.github.bo.CaseBo;
 import com.github.model.Case;
 
 import java.util.List;
@@ -14,7 +15,9 @@ public interface CaseService {
 
     void handleCase(Case medCase);
 
-    Case getCaseById(int id);
+    CaseBo getCaseById(int id);
 
-    List<Case> listCases();
+    List<CaseBo> listCases();
+
+    CaseBo convertCaseToCaseBo(Case medCase);
 }

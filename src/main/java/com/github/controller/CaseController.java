@@ -21,8 +21,6 @@ public class CaseController {
         this.caseService = caseService;
     }
 
-
-
     @RequestMapping(value = "/medCase/add", method = RequestMethod.POST)
     public String addMedCase(@ModelAttribute("medCase") Case medCase){
         caseService.handleCase(medCase);
@@ -45,7 +43,7 @@ public class CaseController {
         return "redirect:/medCases";
     }
 
-    @RequestMapping("edit/{id}")
+    @RequestMapping("editCase/{id}")
     public String editMedCase(@PathVariable("id") int id, Model model){
         model.addAttribute("medCase", this.caseService.getCaseById(id));
         model.addAttribute("listCases", this.caseService.listCases());
@@ -53,10 +51,11 @@ public class CaseController {
         return "medCases";
     }
 
-    @RequestMapping("medCaseData/{id}")
-    public String medCaseData(@PathVariable("id") int id, Model model){
+    @RequestMapping("сaseData/{id}")
+    public String сaseData(@PathVariable("id") int id, Model model){
         model.addAttribute("medCase", this.caseService.getCaseById(id));
 
-        return "medCaseData";
+        return "caseData";
     }
+
 }

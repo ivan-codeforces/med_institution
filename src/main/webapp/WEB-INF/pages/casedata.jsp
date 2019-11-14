@@ -1,4 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -6,62 +7,27 @@
 
 <html>
 <head>
-    <title>CaseData</title>
-
-    <style type="text/css">
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-            border-color: #ccc;
-        }
-
-        .tg td {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .tg th {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: normal;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #f0f0f0;
-        }
-
-        .tg .tg-4eph {
-            background-color: #f9f9f9
-        }
-    </style>
-
+    <title>${user.username}</title>
 </head>
 <body>
-<h1>Case Details</h1>
 
-<table class="tg">
-    <tr>
-        <th width="80">ID</th>
-        <th width="120">Number os case</th>
-        <th width="120">Status</th>
-    </tr>
-    <tr>
-        <td>${medCase.id}</td>
-        <td>${medCase.numberOfCase}</td>
-        <td>${medCase.status}</td>
-    </tr>
-</table>
+<jsp:include page="../pages/fragments/bodyHeader.jsp"/>
+<div class="container">
+
+
+    <table class="tg">
+        <tr>
+            <th>ID</th>
+            <th>Number os case</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>${medCase.id}</td>
+            <td>${medCase.numberOfCase}</td>
+            <td>${medCase.status}</td>
+        </tr>
+    </table>
+
+</div>
 </body>
 </html>

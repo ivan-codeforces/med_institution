@@ -30,6 +30,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.github.model.Case</value>
+                <value>com.github.model.User</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -48,6 +49,15 @@
 
     <bean id="caseService" class="com.github.service.CaseServiceImpl">
         <property name="medCaseDAO" ref="medCaseDAO"/>
+    </bean>
+
+    <!--UserDAO and UserService beans-->
+    <bean id="userDAO" class="com.github.dao.UserDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="userService" class="com.github.service.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
     </bean>
 
     <context:component-scan base-package="com.github"/>

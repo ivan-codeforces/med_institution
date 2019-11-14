@@ -24,12 +24,13 @@
     </bean>
 
     <!-- Hibernate 5 SessionFactory Bean definition -->
-    <bean id="hibernate5AnnotatedSessionFactory"
+    <bean id="hibernate4AnnotatedSessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
                 <value>com.github.model.Case</value>
+                <value>com.github.model.User</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -43,11 +44,20 @@
 
     <!--CaseDAO and CaseService beans-->
     <bean id="medCaseDAO" class="com.github.dao.CaseDAOImpl">
-        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
 
     <bean id="caseService" class="com.github.service.CaseServiceImpl">
         <property name="medCaseDAO" ref="medCaseDAO"/>
+    </bean>
+
+    <!--UserDAO and UserService beans-->
+    <bean id="userDAO" class="com.github.dao.UserDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="userService" class="com.github.service.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
     </bean>
 
     <context:component-scan base-package="com.github"/>
