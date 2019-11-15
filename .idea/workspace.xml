@@ -46,9 +46,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -73,7 +73,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/springframework/spring-context/5.2.0.RELEASE/spring-context-5.2.0.RELEASE.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../achekhtestsb" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -290,11 +290,22 @@
       <workItem from="1573392189741" duration="7310000" />
       <workItem from="1573453216386" duration="1104000" />
       <workItem from="1573501230986" duration="1231000" />
-      <workItem from="1573567048078" duration="56738000" />
+      <workItem from="1573567048078" duration="83623000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/github/controller/CaseController.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

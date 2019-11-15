@@ -15,7 +15,6 @@ public class CaseDAOImpl implements CaseDAO {
         this.sessionFactory = sessionFactory;
     }
 
-
     @Override
     public List<Case> listCases() {
         Session session = this.sessionFactory.getCurrentSession();

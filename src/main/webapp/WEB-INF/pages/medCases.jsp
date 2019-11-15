@@ -6,16 +6,24 @@
 
 <html>
 <head>
-
     <title>Main Page</title>
-
 </head>
 
 <body>
 <jsp:include page="../pages/fragments/bodyHeader.jsp"/>
+
 <div class="container">
 
-<table class="table table-hover" >
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#table-cases">Cases</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">New case</a>
+        </li>
+    </ul>
+
+<table class="table table-hover" id="table-cases">
     <thead>
     <tr>
         <th scope="col">#</th>
@@ -43,7 +51,24 @@
     </c:if>
 </table>
 
-<%--<h1>Add a Case</h1>--%>
+
+
+    <form>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+        </div>
+    </form>
+
+
 
 <%--<c:url var="addAction" value="/medCase/add"/>--%>
 

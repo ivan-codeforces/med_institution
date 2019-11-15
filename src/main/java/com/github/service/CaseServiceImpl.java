@@ -54,9 +54,9 @@ public class CaseServiceImpl implements CaseService {
         List<Case> caseList = this.medCaseDAO.listCases();
 
         List<CaseBo> caseBoList = new ArrayList<>(caseList.size());
-        for (Case mc: caseList
+        for (Case c: caseList
              ) {
-            caseBoList.add(convertCaseToCaseBo(mc));
+            caseBoList.add(convertCaseToCaseBo(c));
         }
 
         return caseBoList;
@@ -72,6 +72,7 @@ public class CaseServiceImpl implements CaseService {
         caseBo.setDateOfEnd(medCase.getDateOfEnd());
         caseBo.setStatus(medCase.getStatus());
         caseBo.setOwnerU(medCase.getOwnerU());
+        caseBo.setOwnerP(medCase.getOwnerP());
 
         return caseBo;
     }

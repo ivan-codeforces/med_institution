@@ -1,5 +1,6 @@
 package com.github.bo;
 
+import com.github.model.Patient;
 import com.github.model.User;
 
 import java.util.Date;
@@ -17,6 +18,16 @@ public class CaseBo {
     private String status;
 
     private User ownerU;
+
+    private Patient ownerP;
+
+    public Patient getOwnerP() {
+        return ownerP;
+    }
+
+    public void setOwnerP(Patient ownerP) {
+        this.ownerP = ownerP;
+    }
 
     public User getOwnerU() {
         return ownerU;
@@ -64,5 +75,18 @@ public class CaseBo {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "CaseBo{" +
+                "id=" + id +
+                ", numberOfCase='" + numberOfCase + '\'' +
+                ", dateOfStart=" + dateOfStart +
+                ", dateOfEnd=" + dateOfEnd +
+                ", status='" + status + '\'' +
+                ", ownerU=" + ownerU +
+                ", ownerP=" + ownerP +
+                '}';
     }
 }

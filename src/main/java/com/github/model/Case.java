@@ -1,10 +1,18 @@
 package com.github.model;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "CASES")
+@Table(name = "cases")
 public class Case {
 
     @Id
@@ -28,17 +36,17 @@ public class Case {
     @JoinColumn(name = "CURRENT_USER")
     private User ownerU;
 
-    public Partient getOwnerP() {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CURRENT_PATIENT")
+    private Patient ownerP;
+
+    public Patient getOwnerP() {
         return ownerP;
     }
 
-    public void setOwnerP(Partient ownerP) {
+    public void setOwnerP(Patient ownerP) {
         this.ownerP = ownerP;
     }
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CURRENT_PATIENT")
-    private Partient ownerP;
 
     public User getOwnerU() {
         return ownerU;
@@ -97,6 +105,7 @@ public class Case {
                 ", dateOfEnd=" + dateOfEnd +
                 ", status='" + status + '\'' +
                 ", ownerU=" + ownerU +
+                ", ownerP=" + ownerP +
                 '}';
     }
 }

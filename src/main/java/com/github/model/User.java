@@ -19,14 +19,14 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "ownerU", fetch = FetchType.EAGER)
-    private Set<Case> case_id;
+    private Set<Case> case_idU;
 
-    public Set<Case> getCase_id() {
-        return case_id;
+    public Set<Case> getCase_idU() {
+        return case_idU;
     }
 
-    public void setCase_id(Set<Case> case_id) {
-        this.case_id = case_id;
+    public void setCase_idU(Set<Case> case_idU) {
+        this.case_idU = case_idU;
     }
 
     public int getId() {
@@ -53,14 +53,6 @@ public class User {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
-    //    @Transient
-//    private String confirmPassword;
+
+
 }

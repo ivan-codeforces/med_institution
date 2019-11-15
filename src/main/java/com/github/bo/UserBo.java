@@ -1,6 +1,5 @@
 package com.github.bo;
 
-
 public class UserBo {
 
     private int id;
