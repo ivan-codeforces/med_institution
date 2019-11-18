@@ -1,5 +1,6 @@
 package com.github.service;
 
+import com.github.bo.CaseBo;
 import com.github.bo.PatientBo;
 import com.github.dao.PatientDAO;
 import com.github.model.Patient;
@@ -25,17 +26,18 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public void removePatient(int id) {
-this.patientDAO.removePatient(id);
+        this.patientDAO.removePatient(id);
     }
 
     @Override
     public void updatePatient(Patient patient) {
-this.patientDAO.updatePatient(patient);
+        this.patientDAO.updatePatient(patient);
     }
 
     @Override
-    public Patient getPatientById(int id) {
-        return this.patientDAO.getPatientById(id);
+    public PatientBo getPatientById(int id){
+        Patient patientById = this.patientDAO.getPatientById(id);
+        return convertPatientToPatientBo(patientById);
     }
 
     @Override

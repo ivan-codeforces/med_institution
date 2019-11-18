@@ -6,7 +6,6 @@ import com.github.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,9 +41,11 @@ public class UserServiceImpl implements UserService{
 
     public UserBo convertUserToUserBo(User user){
         UserBo userBo = new UserBo();
+
         userBo.setId(user.getId());
         userBo.setUsername(user.getUsername());
         userBo.setPassword(user.getPassword());
+
         return userBo;
     }
 }

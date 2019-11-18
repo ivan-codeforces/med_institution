@@ -34,6 +34,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<c:url value="/users"/>">Staff</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value="/patients"/>">Patients</a>
+                </li>
             </ul>
         </div>
     </div>

@@ -15,15 +15,21 @@
 <div class="container">
 
 
-    <table class="tg">
+    <table class="table table-hover" id="table-cases">
+        <thead>
         <tr>
             <th>ID</th>
-            <th>Number os case</th>
+            <th>Number of case</th>
+            <th>Patient</th>
             <th>Status</th>
         </tr>
+        </thead>
         <tr>
             <td>${medCase.id}</td>
             <td>${medCase.numberOfCase}</td>
+            <td>
+                <a href="/patientData/${medCase.ownerP.id}">${medCase.ownerP.firstName} ${medCase.ownerP.lastName}</a>
+            </td>
             <td>${medCase.status}</td>
         </tr>
     </table>

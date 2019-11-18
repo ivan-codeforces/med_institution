@@ -35,9 +35,9 @@ public class CaseServiceImpl implements CaseService {
 
     @Override
     public void handleCase(Case medCase) {
-        if(medCase.getId() == 0){
+        if (medCase.getId() == 0) {
             addCase(medCase);
-        }else {
+        } else {
             updateCase(medCase);
         }
     }
@@ -52,10 +52,10 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public List<CaseBo> listCases() {
         List<Case> caseList = this.medCaseDAO.listCases();
-
         List<CaseBo> caseBoList = new ArrayList<>(caseList.size());
-        for (Case c: caseList
-             ) {
+
+        for (Case c : caseList
+        ) {
             caseBoList.add(convertCaseToCaseBo(c));
         }
 
@@ -76,6 +76,4 @@ public class CaseServiceImpl implements CaseService {
 
         return caseBo;
     }
-
-
 }

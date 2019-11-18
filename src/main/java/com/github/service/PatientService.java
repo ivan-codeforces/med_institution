@@ -1,5 +1,6 @@
 package com.github.service;
 
+import com.github.bo.CaseBo;
 import com.github.bo.PatientBo;
 import com.github.model.Patient;
 
@@ -12,7 +13,7 @@ public interface PatientService {
 
     void updatePatient(Patient patient);
 
-    Patient getPatientById(int id);
+    PatientBo getPatientById(int id);
 
     Patient getPatientByFirstName(String firstName);
 

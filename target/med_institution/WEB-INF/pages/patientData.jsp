@@ -37,10 +37,10 @@
         </div>
         <div class="col-md-3 mb-3 px-4 py-4">
 
-<%--            <c:url var="addCase" value="/medCase/add"/>--%>
-<%--            <form action="${addCase}" modelAttribute="patient">--%>
-<%--                <button type="submit" class="btn btn-primary">New Case</button>--%>
-<%--            </form>--%>
+            <c:url var="addCase" value="/medCase/add"/>
+            <form action="${addCase}" modelAttribute="patient">
+                <button type="submit" class="btn btn-primary">New Case</button>
+            </form>
         </div>
     </div>
 </div>

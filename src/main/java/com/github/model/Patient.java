@@ -1,6 +1,13 @@
 package com.github.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.Set;
 
@@ -39,6 +46,9 @@ public class Patient {
 
     @Column(name = "SSN")
     private int ssn;
+
+    @OneToMany(mappedBy = "ownerP", fetch = FetchType.EAGER)
+    private Set<Case> case_idP;
 
     public int getId() {
         return id;
@@ -119,9 +129,6 @@ public class Patient {
     public void setSsn(int ssn) {
         this.ssn = ssn;
     }
-
-    @OneToMany(mappedBy = "ownerP", fetch = FetchType.EAGER)
-    private Set<Case> case_idP;
 
     public Set<Case> getCase_idP() {
         return case_idP;

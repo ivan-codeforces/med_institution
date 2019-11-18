@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Main Page</title>
+    <title>Staff</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -32,7 +32,7 @@
     <tr>
         <th scope="col">#</th>
         <th scope="col">User</th>
-        <th scope="col">Password</th>
+
     </tr>
     </thead>
 
@@ -42,7 +42,7 @@
             <tr>
                 <td>${user.id}</td>
                 <td><a href="/userData/${user.id}">${user.username}</a></td>
-                <td>${user.password}</td>
+
             </tr>
         </c:forEach>
         </tbody>

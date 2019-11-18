@@ -13,23 +13,20 @@
 
 <jsp:include page="../pages/fragments/bodyHeader.jsp"/>
 <div class="container">
-    <h1>${user.username}</h1>
 
-    <table class="tg">
+
+    <table class="table table-hover" id="table-cases">
+        <thead>
         <tr>
             <th>ID</th>
             <th>User name</th>
         </tr>
+        </thead>
         <tr>
             <td>${user.id}</td>
             <td>${user.username}</td>
         </tr>
     </table>
-
-<%--    <c:forEach items="${listCases}" var="medCase">--%>
-<%--    --%>
-<%--    </c:forEach>--%>
-
 </div>
 </body>
 </html>

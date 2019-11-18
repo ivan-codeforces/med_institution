@@ -19,5 +19,7 @@ public interface CaseService {
 
     List<CaseBo> listCases();
 
+//    List<CaseBo> listCasesByPatientId(List<CaseBo> caseBoList, int id);
+
     CaseBo convertCaseToCaseBo(Case medCase);
 }

@@ -1,5 +1,6 @@
 package com.github.controller;
 
+import com.github.bo.CaseBo;
 import com.github.model.Case;
 import com.github.service.CaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,9 @@ public class CaseController {
 
     @RequestMapping(value = "/medCase/add", method = RequestMethod.POST)
     public String addMedCase(@ModelAttribute("medCase") Case medCase){
-        caseService.handleCase(medCase);
-
-        return "redirect:/medCases";
+//        caseService.handleCase(medCase);
+caseService.addCase(medCase);
+        return "redirect:/caseData/{id}";
     }
 
     @RequestMapping(value = "medCases", method = RequestMethod.GET)
