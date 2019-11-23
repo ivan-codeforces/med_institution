@@ -13,9 +13,6 @@
 
 <jsp:include page="../pages/fragments/bodyHeader.jsp"/>
 <div class="container">
-    
-
-
 
 </div>
 

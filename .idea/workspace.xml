@@ -2,11 +2,58 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="medical_institution:war exploded" />
+      <artifact name="med_institution:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53275a5a-94ef-4097-b908-670057fd56df" name="Default Changelist" comment="" />
+    <list default="true" id="53275a5a-94ef-4097-b908-670057fd56df" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/model/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/bo/CaseBo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/bo/CaseBo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/bo/PatientBo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/bo/PatientBo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/bo/UserBo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/bo/UserBo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/controller/CaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/controller/CaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/controller/PatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/controller/PatientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/dao/CaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/dao/CaseDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/dao/CaseDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/dao/CaseDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/dao/PatientDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/dao/PatientDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/dao/PatientDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/dao/PatientDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/dao/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/dao/UserDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/model/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/model/Case.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/model/Patient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/service/CaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/service/CaseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/service/CaseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/service/CaseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/service/PatientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/service/PatientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/service/PatientServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/service/PatientServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/github/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/github/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/bo/CaseBo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/bo/CaseBo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/bo/PatientBo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/bo/PatientBo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/bo/UserBo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/bo/UserBo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/controller/CaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/controller/CaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/controller/PatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/controller/PatientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/CaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/CaseDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/CaseDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/CaseDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/PatientDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/PatientDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/PatientDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/PatientDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/dao/UserDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/model/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/model/Case.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/model/Patient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/CaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/CaseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/CaseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/CaseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/PatientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/PatientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/PatientServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/PatientServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/classes/com/github/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/pages/editCase.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/pages/editCase.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/med_institution/WEB-INF/pages/patientData.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/med_institution/WEB-INF/pages/patientData.jsp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +98,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -291,10 +341,24 @@
       <workItem from="1573501230986" duration="1231000" />
       <workItem from="1573567048078" duration="83623000" />
       <workItem from="1573966921179" duration="53108000" />
+      <workItem from="1574364529016" duration="2028000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

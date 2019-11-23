@@ -38,7 +38,7 @@ public class Patient {
     @Column(name = "EMAIL")
     private String email;
 
-    @Column(name = "PHONE_NUMBER")
+    @Column(name = "PHONE")
     private int phone;
 
     @Column(name = "COMMENT")
