@@ -42,7 +42,6 @@
             <tr>
                 <td>${user.id}</td>
                 <td><a href="/userData/${user.id}">${user.username}</a></td>
-
             </tr>
         </c:forEach>
         </tbody>

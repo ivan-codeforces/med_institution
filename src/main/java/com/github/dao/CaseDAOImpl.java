@@ -1,8 +1,11 @@
 package com.github.dao;
 
-import com.github.model.Case;
+import com.github.model.CaseEntity;
+import com.github.model.PatientEntity;
+import com.github.util.GeneratorCaseId;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,22 +19,40 @@ public class CaseDAOImpl implements CaseDAO {
     }
 
     @Override
-    public List<Case> listCases() {
+    public List<CaseEntity> listCases() {
         Session session = this.sessionFactory.getCurrentSession();
 
-        return session.createQuery("from Case").list();
+        return session.createQuery("from CaseEntity").list();
+    }
+
+    public CaseEntity lastCaseId(){
+        Session session = this.sessionFactory.getCurrentSession();
+
+        return (CaseEntity) session.createQuery("select max (id) from CaseEntity").getSingleResult();
     }
 
     @Override
-    public void addCase(Case medCase) {
+    public List<CaseEntity> listCasesByPatientId(PatientEntity patient) {
         Session session = this.sessionFactory.getCurrentSession();
+
+        Query query = session.createQuery("from CaseEntity where :id = ownerP");
+        query.setParameter("id", patient.getId());
+
+        return query.list();
+    }
+
+    @Override
+    public void addCase(CaseEntity medCase, PatientEntity patient) {
+        Session session = this.sessionFactory.getCurrentSession();
+        medCase.setId(GeneratorCaseId.autoIncrement(listCases()));
+        medCase.setOwnerP(patient);
         session.persist(medCase);
     }
 
     @Override
-    public void removeCase(int id) {
+    public void removeCase(String id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Case medCase = session.load(Case.class, id);
+        CaseEntity medCase = session.get(CaseEntity.class, id);
 
         if (medCase != null) {
             session.delete(medCase);
@@ -39,15 +60,15 @@ public class CaseDAOImpl implements CaseDAO {
     }
 
     @Override
-    public void updateCase(Case medCase) {
+    public void updateCase(CaseEntity medCase) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(medCase);
     }
 
     @Override
-    public Case getCaseById(int id) {
+    public CaseEntity getCaseById(String id) {
         Session session = this.sessionFactory.getCurrentSession();
 
-        return session.load(Case.class, id);
+        return session.load(CaseEntity.class, id);
     }
 }

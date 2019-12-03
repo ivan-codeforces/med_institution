@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "users", method = RequestMethod.GET)
-    public String listUsers(Model model){
+    public String listUsers(Model model) {
         model.addAttribute("users", new User());
         model.addAttribute("listUsers", this.userService.listUsers());
 
@@ -29,9 +29,11 @@ public class UserController {
     }
 
     @RequestMapping("userData/{id}")
-    public String userData(@PathVariable("id") int id, Model model){
+    public String userData(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", this.userService.getUserById(id));
 
         return "userData";
     }
+
+
 }

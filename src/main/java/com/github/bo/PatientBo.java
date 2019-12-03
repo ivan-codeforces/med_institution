@@ -104,18 +104,4 @@ public class PatientBo {
         this.ssn = ssn;
     }
 
-    @Override
-    public String toString() {
-        return "PatientBo{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", passport=" + passport +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                ", phone=" + phone +
-                ", comment='" + comment + '\'' +
-                ", ssn=" + ssn +
-                '}';
-    }
 }

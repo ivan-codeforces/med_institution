@@ -1,5 +1,8 @@
 package com.github.model;
 
+
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +16,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "patient")
-public class Patient {
+@Data
+public class PatientEntity {
 
     @Id
     @Column(name = "ID")
@@ -48,7 +52,7 @@ public class Patient {
     private int ssn;
 
     @OneToMany(mappedBy = "ownerP", fetch = FetchType.EAGER)
-    private Set<Case> case_idP;
+    private Set<CaseEntity> case_idP;
 
     public int getId() {
         return id;
@@ -130,11 +134,11 @@ public class Patient {
         this.ssn = ssn;
     }
 
-    public Set<Case> getCase_idP() {
+    public Set<CaseEntity> getCase_idP() {
         return case_idP;
     }
 
-    public void setCase_idP(Set<Case> case_idP) {
+    public void setCase_idP(Set<CaseEntity> case_idP) {
         this.case_idP = case_idP;
     }
 

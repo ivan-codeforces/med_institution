@@ -1,51 +1,56 @@
 package com.github.controller;
 
-import com.github.bo.CaseBo;
-import com.github.model.Case;
+import com.github.model.CaseEntity;
+import com.github.model.PatientEntity;
 import com.github.service.CaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CaseController {
     private CaseService caseService;
 
-    @Autowired(required = true)
+    @Autowired
     @Qualifier(value = "caseService")
     public void setCaseService(CaseService caseService) {
         this.caseService = caseService;
+
     }
 
-    @RequestMapping(value = "/medCase/add", method = RequestMethod.POST)
-    public String addMedCase(@ModelAttribute("medCase") Case medCase){
-//        caseService.handleCase(medCase);
-caseService.addCase(medCase);
-        return "redirect:/caseData/{id}";
+    @PostMapping(value = "/medCase/add")
+    public String addMedCase(@ModelAttribute("medCase") CaseEntity medCase, @ModelAttribute("patient") PatientEntity patient) {
+        caseService.addCase(medCase, patient.getId());
+        return "redirect:/medCases";
     }
 
-    @RequestMapping(value = "medCases", method = RequestMethod.GET)
-    public String listCases(Model model){
-        model.addAttribute("medCase", new Case());
+    @GetMapping(value = "medCases")
+    public String listCases(Model model) {
+        model.addAttribute("medCase");
         model.addAttribute("listCases", this.caseService.listCases());
 
         return "medCases";
     }
 
+    @GetMapping(value = "medCasesByPatient")
+    public String listCasesByPatientId(Model model, PatientEntity patient) {
+        model.addAttribute("medCase");
+        model.addAttribute("listCasesByPatientId", this.caseService.listCasesByPatientId(patient));
+
+        return "patientData";
+    }
+
     @RequestMapping("/remove/{id}")
-    public String removeMedCase(@PathVariable("id") int id){
+    public String removeMedCase(@PathVariable("id") String id) {
         this.caseService.removeCase(id);
 
         return "redirect:/medCases";
     }
 
-    @RequestMapping("/editCase/{id}")
-    public String editMedCase(@PathVariable("id") int id, Model model){
+    @PostMapping("/editCase/{id}")
+    public String editMedCase(@PathVariable("id") String id, Model model) {
         model.addAttribute("medCase", this.caseService.getCaseById(id));
         model.addAttribute("listCases", this.caseService.listCases());
 
@@ -53,7 +58,7 @@ caseService.addCase(medCase);
     }
 
     @RequestMapping("/caseData/{id}")
-    public String caseData(@PathVariable("id") int id, Model model){
+    public String caseData(@PathVariable("id") String id, Model model) {
         model.addAttribute("medCase", this.caseService.getCaseById(id));
 
         return "caseData";

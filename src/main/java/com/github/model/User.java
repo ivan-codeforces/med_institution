@@ -26,13 +26,13 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "ownerU", fetch = FetchType.EAGER)
-    private Set<Case> case_idU;
+    private Set<CaseEntity> case_idU;
 
-    public Set<Case> getCase_idU() {
+    public Set<CaseEntity> getCase_idU() {
         return case_idU;
     }
 
-    public void setCase_idU(Set<Case> case_idU) {
+    public void setCase_idU(Set<CaseEntity> case_idU) {
         this.case_idU = case_idU;
     }
 
@@ -59,7 +59,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 
 }

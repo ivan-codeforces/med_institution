@@ -9,6 +9,8 @@
 <body>
 <jsp:include page="WEB-INF/pages/fragments/bodyHeader.jsp"/>
 
+
+
 </body>
 </html>
 

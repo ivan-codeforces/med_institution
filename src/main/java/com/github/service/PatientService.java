@@ -1,25 +1,23 @@
 package com.github.service;
 
-import com.github.bo.CaseBo;
 import com.github.bo.PatientBo;
-import com.github.model.Patient;
+import com.github.model.PatientEntity;
 
 import java.util.List;
 
 public interface PatientService {
-    void addPatient(Patient patient);
+    void addPatient(PatientEntity patient);
 
     void removePatient(int id);
 
-    void updatePatient(Patient patient);
+    void updatePatient(PatientEntity patient);
 
     PatientBo getPatientById(int id);
 
-    Patient getPatientByFirstName(String firstName);
+    PatientEntity getPatientByFirstName(String firstName);
 
-    Patient getPatientByLastName(String lastName);
+    PatientEntity getPatientByLastName(String lastName);
 
     List<PatientBo> listPatients();
 
-    PatientBo convertPatientToPatientBo(Patient patient);
 }

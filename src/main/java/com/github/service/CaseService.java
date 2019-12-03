@@ -1,25 +1,24 @@
 package com.github.service;
 
 import com.github.bo.CaseBo;
-import com.github.model.Case;
+import com.github.model.CaseEntity;
+import com.github.model.PatientEntity;
 
 import java.util.List;
 
 public interface CaseService {
 
-    void addCase(Case medCase);
+    void addCase(CaseEntity medCase, long id);
 
-    void removeCase(int id);
+    void removeCase(String id);
 
-    void updateCase(Case medCase);
+    void updateCase(CaseEntity medCase);
 
-    void handleCase(Case medCase);
-
-    CaseBo getCaseById(int id);
+    CaseBo getCaseById(String id);
 
     List<CaseBo> listCases();
 
-//    List<CaseBo> listCasesByPatientId(List<CaseBo> caseBoList, int id);
+    List<CaseBo> listCasesByPatientId(PatientEntity patient);
 
-    CaseBo convertCaseToCaseBo(Case medCase);
+    List<CaseBo> listCasesByPatientId(int patient);
 }

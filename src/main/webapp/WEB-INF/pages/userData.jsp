@@ -13,15 +13,13 @@
 
 <jsp:include page="../pages/fragments/bodyHeader.jsp"/>
 <div class="container">
+    <h1>${user.username}</h1>
 
-
-    <table class="table table-hover" id="table-cases">
-        <thead>
+    <table class="tg">
         <tr>
             <th>ID</th>
             <th>User name</th>
         </tr>
-        </thead>
         <tr>
             <td>${user.id}</td>
             <td>${user.username}</td>

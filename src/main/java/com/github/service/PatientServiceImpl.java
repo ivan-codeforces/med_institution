@@ -1,9 +1,9 @@
 package com.github.service;
 
-import com.github.bo.CaseBo;
 import com.github.bo.PatientBo;
 import com.github.dao.PatientDAO;
-import com.github.model.Patient;
+import com.github.model.PatientEntity;
+import com.github.util.PatientMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,64 +20,52 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public void addPatient(Patient patient) {
+    public void addPatient(PatientEntity patient) {
         this.patientDAO.addPatient(patient);
     }
 
     @Override
-    public void removePatient(int id) {
+    public void removePatient(int id){
+
         this.patientDAO.removePatient(id);
     }
 
     @Override
-    public void updatePatient(Patient patient) {
+    public void updatePatient(PatientEntity patient){
+
         this.patientDAO.updatePatient(patient);
     }
 
     @Override
     public PatientBo getPatientById(int id){
-        Patient patientById = this.patientDAO.getPatientById(id);
-        return convertPatientToPatientBo(patientById);
+        PatientEntity patientById = this.patientDAO.getPatientById(id);
+
+        return PatientMapper.convertPatientToPatientBo(patientById);
     }
 
     @Override
-    public Patient getPatientByFirstName(String firstName) {
+    public PatientEntity getPatientByFirstName(String firstName) {
+
         return this.patientDAO.getPatientByFirstName(firstName);
     }
 
     @Override
-    public Patient getPatientByLastName(String lastName) {
+    public PatientEntity getPatientByLastName(String lastName) {
+
         return this.patientDAO.getPatientByLastName(lastName);
     }
 
     @Override
     public List<PatientBo> listPatients() {
-        List<Patient> patientList = this.patientDAO.listPatients();
+        List<PatientEntity> patientList = this.patientDAO.listPatients();
 
         List<PatientBo> patientBoList = new ArrayList<>(patientList.size());
-        for (Patient p : patientList
+        for (PatientEntity p : patientList
         ) {
-            patientBoList.add(convertPatientToPatientBo(p));
+            patientBoList.add(PatientMapper.convertPatientToPatientBo(p));
         }
 
         return patientBoList;
     }
 
-    @Override
-    public PatientBo convertPatientToPatientBo(Patient patient) {
-        PatientBo patientBo = new PatientBo();
-
-        patientBo.setId(patient.getId());
-        patientBo.setFirstName(patient.getFirstName());
-        patientBo.setLastName(patient.getLastName());
-        patientBo.setDateOfBirth(patient.getDateOfBirth());
-        patientBo.setPassport(patient.getPassport());
-        patientBo.setAddress(patient.getAddress());
-        patientBo.setEmail(patient.getEmail());
-        patientBo.setPhone(patient.getPhone());
-        patientBo.setComment(patient.getComment());
-        patientBo.setSsn(patient.getSsn());
-
-        return patientBo;
-    }
 }

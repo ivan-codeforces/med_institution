@@ -29,9 +29,9 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
-                <value>com.github.model.Case</value>
+                <value>com.github.model.CaseEntity</value>
                 <value>com.github.model.User</value>
-                <value>com.github.model.Patient</value>
+                <value>com.github.model.PatientEntity</value>
             </list>
         </property>
         <property name="hibernateProperties">

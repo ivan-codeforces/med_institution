@@ -1,17 +1,20 @@
 package com.github.dao;
 
-import com.github.model.Case;
+import com.github.model.CaseEntity;
+import com.github.model.PatientEntity;
 
 import java.util.List;
 
 public interface CaseDAO {
-    List<Case> listCases();
+    List<CaseEntity> listCases();
 
-    void addCase(Case medCase);
+    List<CaseEntity> listCasesByPatientId(PatientEntity patient);
 
-    void removeCase(int id);
+    void addCase(CaseEntity medCase, PatientEntity patient);
 
-    void updateCase(Case medCase);
+    void removeCase(String id);
 
-    Case getCaseById(int id);
+    void updateCase(CaseEntity medCase);
+
+    CaseEntity getCaseById(String id);
 }

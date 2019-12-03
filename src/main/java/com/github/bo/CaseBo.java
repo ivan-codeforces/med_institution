@@ -1,15 +1,13 @@
 package com.github.bo;
 
-import com.github.model.Patient;
+import com.github.model.PatientEntity;
 import com.github.model.User;
 
 import java.util.Date;
 
 public class CaseBo {
 
-    private int id;
-
-    private String numberOfCase;
+    private String id;
 
     private Date dateOfStart;
 
@@ -19,13 +17,13 @@ public class CaseBo {
 
     private User ownerU;
 
-    private Patient ownerP;
+    private PatientEntity ownerP;
 
-    public Patient getOwnerP() {
+    public PatientEntity getOwnerP() {
         return ownerP;
     }
 
-    public void setOwnerP(Patient ownerP) {
+    public void setOwnerP(PatientEntity ownerP) {
         this.ownerP = ownerP;
     }
 
@@ -37,13 +35,10 @@ public class CaseBo {
         this.ownerU = ownerU;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public String getNumberOfCase() {
-        return numberOfCase;
-    }
 
     public Date getDateOfStart() {
         return dateOfStart;
@@ -57,12 +52,8 @@ public class CaseBo {
         return status;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public void setNumberOfCase(String numberOfCase) {
-        this.numberOfCase = numberOfCase;
     }
 
     public void setDateOfStart(Date dateOfStart) {
@@ -77,16 +68,4 @@ public class CaseBo {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "CaseBo{" +
-                "id=" + id +
-                ", numberOfCase='" + numberOfCase + '\'' +
-                ", dateOfStart=" + dateOfStart +
-                ", dateOfEnd=" + dateOfEnd +
-                ", status='" + status + '\'' +
-                ", ownerU=" + ownerU +
-                ", ownerP=" + ownerP +
-                '}';
-    }
 }

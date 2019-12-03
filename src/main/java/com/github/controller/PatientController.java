@@ -1,49 +1,52 @@
 package com.github.controller;
 
-import com.github.model.Patient;
+import com.github.bo.CaseBo;
+import com.github.bo.PatientBo;
+import com.github.model.PatientEntity;
+import com.github.service.CaseService;
 import com.github.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class PatientController {
     private PatientService patientService;
+    private CaseService caseService;
 
-    @Autowired(required = true)
-    @Qualifier(value = "patientService")
+    @Autowired
     public void setPatientService(PatientService patientService) {
         this.patientService = patientService;
     }
 
-    @RequestMapping(value = "patients", method = RequestMethod.POST)
-    public String addPatient(@ModelAttribute("patient") Patient patient) {
+    @Autowired
+    public void setCaseService(CaseService caseService) {
+        this.caseService = caseService;
+    }
+
+    @PostMapping(value = "patients")
+    public String addPatient(@ModelAttribute("patient") PatientEntity patient) {
         patientService.addPatient(patient);
         return "redirect:/patients";
     }
 
-    @RequestMapping(value = "patients", method = RequestMethod.POST)
-    public String updatePatient(@ModelAttribute("patient") Patient patient) {
-        patientService.updatePatient(patient);
-        return "redirect:/patients";
-    }
-
-    @RequestMapping(value = "patients", method = RequestMethod.GET)
+    @GetMapping(value = "patients")
     public String listPatients(Model model) {
-        model.addAttribute("patient", new Patient());
+        model.addAttribute("patient", new PatientEntity());
         model.addAttribute("listPatients", this.patientService.listPatients());
 
         return "patients";
     }
 
-    @RequestMapping("patientData/{id}")
+    @GetMapping("patientData/{id}")
     public String patientData(@PathVariable("id") int id, Model model) {
-        model.addAttribute("patient", this.patientService.getPatientById(id));
+        PatientBo patientById = this.patientService.getPatientById(id);
+        model.addAttribute("patient", patientById);
+        List<CaseBo> attributeValue = this.caseService.listCasesByPatientId(id);
+        model.addAttribute("listCasesByPatientId", attributeValue);
 
         return "patientData";
     }

@@ -1,21 +1,21 @@
 package com.github.dao;
 
-import com.github.model.Patient;
+import com.github.model.PatientEntity;
 
 import java.util.List;
 
 public interface PatientDAO {
-    List<Patient> listPatients();
+    List<PatientEntity> listPatients();
 
-    void addPatient(Patient patient);
+    void addPatient(PatientEntity patient);
 
     void removePatient(int id);
 
-    void updatePatient(Patient patient);
+    void updatePatient(PatientEntity patient);
 
-    Patient getPatientById(int id);
+    PatientEntity getPatientById(int id);
 
-    Patient getPatientByFirstName(String firstName);
+    PatientEntity getPatientByFirstName(String firstName);
 
-    Patient getPatientByLastName(String lastName);
+    PatientEntity getPatientByLastName(String lastName);
 }

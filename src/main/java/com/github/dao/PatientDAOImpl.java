@@ -1,6 +1,6 @@
 package com.github.dao;
 
-import com.github.model.Patient;
+import com.github.model.PatientEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class PatientDAOImpl implements PatientDAO{
+public class PatientDAOImpl implements PatientDAO {
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -16,14 +16,14 @@ public class PatientDAOImpl implements PatientDAO{
     }
 
     @Override
-    public List<Patient> listPatients() {
+    public List<PatientEntity> listPatients() {
         Session session = this.sessionFactory.getCurrentSession();
 
-        return session.createQuery("from Patient").list();
+        return session.createQuery("from PatientEntity").list();
     }
 
     @Override
-    public void addPatient(Patient patient) {
+    public void addPatient(PatientEntity patient) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(patient);
     }
@@ -31,7 +31,7 @@ public class PatientDAOImpl implements PatientDAO{
     @Override
     public void removePatient(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Patient patient = session.load(Patient.class, id);
+        PatientEntity patient = session.load(PatientEntity.class, id);
 
         if (patient != null) {
             session.delete(patient);
@@ -39,30 +39,30 @@ public class PatientDAOImpl implements PatientDAO{
     }
 
     @Override
-    public void updatePatient(Patient patient) {
+    public void updatePatient(PatientEntity patient) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(patient);
     }
 
     @Override
-    public Patient getPatientById(int id) {
+    public PatientEntity getPatientById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
 
-        return session.load(Patient.class, id);
+        return session.load(PatientEntity.class, id);
     }
 
     @Override
-    public Patient getPatientByFirstName(String firstName) {
+    public PatientEntity getPatientByFirstName(String firstName) {
         Session session = this.sessionFactory.getCurrentSession();
 
-        return session.load(Patient.class, firstName);
+        return session.load(PatientEntity.class, firstName);
     }
 
     @Override
-    public Patient getPatientByLastName(String lastName) {
+    public PatientEntity getPatientByLastName(String lastName) {
         Session session = this.sessionFactory.getCurrentSession();
 
-        return session.load(Patient.class, lastName);
+        return session.load(PatientEntity.class, lastName);
     }
 
 }

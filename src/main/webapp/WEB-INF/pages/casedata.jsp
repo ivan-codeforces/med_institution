@@ -19,17 +19,11 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Number of case</th>
-            <th>Patient</th>
             <th>Status</th>
         </tr>
         </thead>
         <tr>
             <td>${medCase.id}</td>
-            <td>${medCase.numberOfCase}</td>
-            <td>
-                <a href="/patientData/${medCase.ownerP.id}">${medCase.ownerP.firstName} ${medCase.ownerP.lastName}</a>
-            </td>
             <td>${medCase.status}</td>
         </tr>
     </table>
