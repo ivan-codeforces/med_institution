@@ -2,7 +2,7 @@ package com.github.service;
 
 import com.github.bo.UserBo;
 import com.github.dao.UserDAO;
-import com.github.model.User;
+import com.github.model.UserEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,25 +21,24 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserBo getUserById(int id) {
-        User userEntity = this.userDAO.getUserById(id);
+        UserEntity userEntity = this.userDAO.getUserById(id);
 
         return convertUserToUserBo(userEntity);
     }
 
     @Override
     public List<UserBo> listUsers() {
-        List<User> userList = this.userDAO.listUsers();
+        List<UserEntity> userList = this.userDAO.listUsers();
 
         List<UserBo> userBoList= new ArrayList<>(userList.size());
-        for (User u: userList
-             ) {
+        for (UserEntity u: userList) {
             userBoList.add(convertUserToUserBo(u));
         }
 
         return userBoList;
     }
 
-    public UserBo convertUserToUserBo(User user){
+    public UserBo convertUserToUserBo(UserEntity user){
         UserBo userBo = new UserBo();
 
         userBo.setId(user.getId());

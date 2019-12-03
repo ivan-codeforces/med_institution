@@ -1,6 +1,14 @@
 package com.github.model;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -23,7 +31,7 @@ public class CaseEntity {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CURRENT_USER")
-    private User ownerU;
+    private UserEntity ownerU;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CURRENT_PATIENT")
@@ -37,11 +45,11 @@ public class CaseEntity {
         this.ownerP = ownerP;
     }
 
-    public User getOwnerU() {
+    public UserEntity getOwnerU() {
         return ownerU;
     }
 
-    public void setOwnerU(User ownerU) {
+    public void setOwnerU(UserEntity ownerU) {
         this.ownerU = ownerU;
     }
 
@@ -76,17 +84,5 @@ public class CaseEntity {
     public void setStatus(CaseStatus status) {
         this.status = status;
     }
-
-//    @Override
-//    public String toString() {
-//        return "Case{" +
-//                ", id='" + id + '\'' +
-//                ", dateOfStart=" + dateOfStart +
-//                ", dateOfEnd=" + dateOfEnd +
-////                ", status='" + status + '\'' +
-//                ", ownerU=" + ownerU +
-//                ", ownerP=" + ownerP +
-//                '}';
-//    }
 
 }

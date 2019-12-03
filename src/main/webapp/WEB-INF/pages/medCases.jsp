@@ -17,7 +17,6 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-<%--            <th scope="col">Number of Case</th>--%>
             <th scope="col">Patient</th>
             <th scope="col">Status</th>
             <th scope="col">User</th>

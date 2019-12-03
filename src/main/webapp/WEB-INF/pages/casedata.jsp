@@ -14,7 +14,6 @@
 <jsp:include page="../pages/fragments/bodyHeader.jsp"/>
 <div class="container">
 
-
     <table class="table table-hover" id="table-cases">
         <thead>
         <tr>

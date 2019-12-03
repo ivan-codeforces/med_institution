@@ -1,6 +1,6 @@
 package com.github.dao;
 
-import com.github.model.User;
+import com.github.model.UserEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -17,16 +17,16 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getUserById(int id) {
+    public UserEntity getUserById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
 
-        return session.load(User.class, id);
+        return session.load(UserEntity.class, id);
     }
 
     @Override
-    public List<User> listUsers() {
+    public List<UserEntity> listUsers() {
         Session session = this.sessionFactory.getCurrentSession();
 
-        return session.createQuery("from User").list();
+        return session.createQuery("from UserEntity").list();
     }
 }

@@ -14,10 +14,8 @@ public class CaseController {
     private CaseService caseService;
 
     @Autowired
-    @Qualifier(value = "caseService")
-    public void setCaseService(CaseService caseService) {
+    public CaseController(CaseService caseService) {
         this.caseService = caseService;
-
     }
 
     @PostMapping(value = "/medCase/add")
@@ -42,7 +40,7 @@ public class CaseController {
         return "patientData";
     }
 
-    @RequestMapping("/remove/{id}")
+    @DeleteMapping("/remove/{id}")
     public String removeMedCase(@PathVariable("id") String id) {
         this.caseService.removeCase(id);
 
@@ -57,7 +55,7 @@ public class CaseController {
         return "medCases";
     }
 
-    @RequestMapping("/caseData/{id}")
+    @GetMapping("/caseData/{id}")
     public String caseData(@PathVariable("id") String id, Model model) {
         model.addAttribute("medCase", this.caseService.getCaseById(id));
 

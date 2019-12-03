@@ -3,9 +3,7 @@ package com.github.bo;
 public class UserBo {
 
     private int id;
-
     private String username;
-
     private String password;
 
     public int getId() {

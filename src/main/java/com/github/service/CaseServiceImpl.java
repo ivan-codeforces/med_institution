@@ -58,8 +58,7 @@ public class CaseServiceImpl implements CaseService {
         List<CaseEntity> caseList = this.medCaseDAO.listCases();
         List<CaseBo> caseBoList = new ArrayList<>(caseList.size());
 
-        for (CaseEntity c : caseList
-        ) {
+        for (CaseEntity c : caseList) {
             caseBoList.add(CaseMapper.convertCaseToCaseBo(c));
         }
 
@@ -76,8 +75,7 @@ public class CaseServiceImpl implements CaseService {
         List<CaseEntity> caseList = this.medCaseDAO.listCases();
         List<CaseBo> caseBoList = new ArrayList<>(caseList.size());
 
-        for (CaseEntity c : caseList
-        ) {
+        for (CaseEntity c : caseList) {
             if (c.getOwnerP().getId() == patientId) {
                 caseBoList.add(CaseMapper.convertCaseToCaseBo(c));
             }

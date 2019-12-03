@@ -3,7 +3,9 @@ package com.github.util;
 import com.github.bo.PatientBo;
 import com.github.model.PatientEntity;
 
-public class PatientMapper {
+public final class PatientMapper {
+    private PatientMapper() {
+    }
 
     public static PatientBo convertPatientToPatientBo(PatientEntity patient) {
         PatientBo patientBo = new PatientBo();

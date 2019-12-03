@@ -3,7 +3,10 @@ package com.github.util;
 import com.github.bo.CaseBo;
 import com.github.model.CaseEntity;
 
-public class CaseMapper {
+public final class CaseMapper {
+
+    private CaseMapper() {
+    }
 
     public static CaseBo convertCaseToCaseBo(CaseEntity medCase) {
         CaseBo caseBo = new CaseBo();

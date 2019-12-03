@@ -1,8 +1,6 @@
 package com.github.model;
 
 
-import lombok.Data;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,7 +14,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "patient")
-@Data
 public class PatientEntity {
 
     @Id

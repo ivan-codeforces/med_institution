@@ -1,10 +1,10 @@
 package com.github.dao;
 
-import com.github.model.User;
+import com.github.model.UserEntity;
 
 import java.util.List;
 
 public interface UserDAO {
-    User getUserById(int id);
-    List<User> listUsers();
+    UserEntity getUserById(int id);
+    List<UserEntity> listUsers();
 }

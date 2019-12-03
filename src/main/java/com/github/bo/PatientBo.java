@@ -5,23 +5,14 @@ import java.util.Date;
 public class PatientBo {
 
     private int id;
-
     private String firstName;
-
     private String lastName;
-
     private Date dateOfBirth;
-
     private int passport;
-
     private String address;
-
     private String email;
-
     private int phone;
-
     private String comment;
-
     private int ssn;
 
     public int getId() {

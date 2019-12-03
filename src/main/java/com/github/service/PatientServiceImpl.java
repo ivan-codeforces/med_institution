@@ -60,8 +60,7 @@ public class PatientServiceImpl implements PatientService {
         List<PatientEntity> patientList = this.patientDAO.listPatients();
 
         List<PatientBo> patientBoList = new ArrayList<>(patientList.size());
-        for (PatientEntity p : patientList
-        ) {
+        for (PatientEntity p : patientList) {
             patientBoList.add(PatientMapper.convertPatientToPatientBo(p));
         }
 

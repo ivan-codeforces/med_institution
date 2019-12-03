@@ -1,22 +1,17 @@
 package com.github.bo;
 
 import com.github.model.PatientEntity;
-import com.github.model.User;
+import com.github.model.UserEntity;
 
 import java.util.Date;
 
 public class CaseBo {
 
     private String id;
-
     private Date dateOfStart;
-
     private Date dateOfEnd;
-
     private String status;
-
-    private User ownerU;
-
+    private UserEntity ownerU;
     private PatientEntity ownerP;
 
     public PatientEntity getOwnerP() {
@@ -27,18 +22,17 @@ public class CaseBo {
         this.ownerP = ownerP;
     }
 
-    public User getOwnerU() {
+    public UserEntity getOwnerU() {
         return ownerU;
     }
 
-    public void setOwnerU(User ownerU) {
+    public void setOwnerU(UserEntity ownerU) {
         this.ownerU = ownerU;
     }
 
     public String getId() {
         return id;
     }
-
 
     public Date getDateOfStart() {
         return dateOfStart;
