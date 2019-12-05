@@ -18,12 +18,8 @@ public class PatientController {
     private CaseService caseService;
 
     @Autowired
-    public PatientController(PatientService patientService) {
+    public PatientController(PatientService patientService, CaseService caseService) {
         this.patientService = patientService;
-    }
-
-
-    public PatientController(CaseService caseService) {
         this.caseService = caseService;
     }
 

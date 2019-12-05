@@ -3,6 +3,7 @@ package com.github.service;
 import com.github.bo.UserBo;
 import com.github.dao.UserDAO;
 import com.github.model.UserEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,10 +13,10 @@ import java.util.List;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService{
-    private UserDAO userDAO;
+    private final UserDAO userDAO;
 
-    public void setUserDAO(UserDAO userDAO)
-    {
+    @Autowired
+    public UserServiceImpl(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
 

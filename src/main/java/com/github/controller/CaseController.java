@@ -4,10 +4,13 @@ import com.github.model.CaseEntity;
 import com.github.model.PatientEntity;
 import com.github.service.CaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CaseController {
@@ -18,10 +21,11 @@ public class CaseController {
         this.caseService = caseService;
     }
 
-    @PostMapping(value = "/medCase/add")
+    @PostMapping(value = "medCase")
     public String addMedCase(@ModelAttribute("medCase") CaseEntity medCase, @ModelAttribute("patient") PatientEntity patient) {
+
         caseService.addCase(medCase, patient.getId());
-        return "redirect:/medCases";
+        return "redirect:/patientData/${patient.id}";
     }
 
     @GetMapping(value = "medCases")

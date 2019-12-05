@@ -57,33 +57,44 @@
         </div>
 
         <div role="tabpanel" class="tab-pane" id="cases">
-            <table class="table table-hover" id="table-cases">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Patient</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">User</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-                </tr>
-                </thead>
-                <c:if test="${!empty listCasesByPatientId}">
-                    <c:forEach items="${listCasesByPatientId}" var="medCase">
+            <div class="form-row">
+                <div class="col-md-9 mb-3 py-4">
+                    <table class="table table-hover" id="table-cases">
+                        <thead>
                         <tr>
-                            <td><a href="/caseData/${medCase.id}">${medCase.id}</a></td>
-                            <td>
-                                <a href="/patientData/${medCase.ownerP.id}">${medCase.ownerP.firstName} ${medCase.ownerP.lastName}</a>
-                            </td>
-                            <td>${medCase.status}</td>
-                            <td><a href="/userData/${medCase.ownerU.id}">${medCase.ownerU.username}</a></td>
-                            <td><a href="<c:url value='/editCase/${medCase.id}'/>">Edit</a></td>
-                            <td><a href="<c:url value='/remove/${medCase.id}'/>">Delete</a></td>
+                            <th scope="col">#</th>
+                            <th scope="col">Patient</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">User</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
                         </tr>
-                    </c:forEach>
-                </c:if>
-            </table>
+                        </thead>
+                        <c:if test="${!empty listCasesByPatientId}">
+                            <c:forEach items="${listCasesByPatientId}" var="medCase">
+                                <tr>
+                                    <td><a href="/caseData/${medCase.id}">${medCase.id}</a></td>
+                                    <td>
+                                        <a href="/patientData/${medCase.ownerP.id}">${medCase.ownerP.firstName} ${medCase.ownerP.lastName}</a>
+                                    </td>
+                                    <td>${medCase.status}</td>
+                                    <td><a href="/userData/${medCase.ownerU.id}">${medCase.ownerU.username}</a></td>
+                                    <td><a href="<c:url value='/editCase/${medCase.id}'/>">Edit</a></td>
+                                    <td><a href="<c:url value='/remove/${medCase.id}'/>">Delete</a></td>
+                                </tr>
+                            </c:forEach>
+                        </c:if>
+                    </table>
+                </div>
+                <div class="col-md-3 mb-3 px-4 py-4">
+                    <c:url var="addMedCase" value="/patientData/${patient.id}"/>
+                    <form:form action="${addMedCase}" modelAttribute="medCase">
+                        <button type="submit" value="<spring:message text="Add Case"/>" class="btn btn-primary">Create case</button>
+                    </form:form>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
 

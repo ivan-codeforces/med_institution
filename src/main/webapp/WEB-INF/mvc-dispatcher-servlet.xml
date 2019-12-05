@@ -43,33 +43,6 @@
         </property>
     </bean>
 
-    <!--CaseDAO and CaseService beans-->
-    <bean id="medCaseDAO" class="com.github.dao.CaseDAOImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
-
-    <bean id="caseService" class="com.github.service.CaseServiceImpl">
-        <property name="medCaseDAO" ref="medCaseDAO"/>
-    </bean>
-
-    <!--UserDAO and UserService beans-->
-    <bean id="userDAO" class="com.github.dao.UserDAOImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
-
-    <bean id="userService" class="com.github.service.UserServiceImpl">
-        <property name="userDAO" ref="userDAO"/>
-    </bean>
-
-    <!--PatientDAO and PatientService beans-->
-    <bean id="patientDAO" class="com.github.dao.PatientDAOImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
-
-    <bean id="patientService" class="com.github.service.PatientServiceImpl">
-        <property name="patientDAO" ref="patientDAO"/>
-    </bean>
-
     <context:component-scan base-package="com.github"/>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>

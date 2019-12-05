@@ -23,6 +23,7 @@
                     <th scope="col">Address</th>
                     <th scope="col">Phone</th>
                     <th scope="col">SSN</th>
+                    <th scope="col">Edit</th>
                 </tr>
                 </thead>
 
@@ -34,6 +35,7 @@
                             <td>${patient.address}</td>
                             <td>${patient.phone}</td>
                             <td>${patient.ssn}</td>
+                            <td><a href="<c:url value='/patients'/>">Edit</a></td>
                         </tr>
                     </c:forEach>
                 </c:if>
@@ -44,6 +46,7 @@
             </button>
 
             <!-- Modal -->
+
             <c:url var="addPatient" value="/patients"/>
             <form:form action="${addPatient}" modelAttribute="patient">
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -52,7 +55,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Add new Patient</h5>
+                                <h5 class="modal-title" id="newPatient">Add new Patient</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -61,54 +64,74 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <form:label path="firstName">First name</form:label>
-                                        <form:input path="firstName" type="text" class="form-control" id="validationServer01"
-                                               placeholder="First name"/>
+                                        <form:input path="firstName" type="text" class="form-control"
+                                                    id="validationServer01"
+                                                    placeholder="First name"/>
+                                        <form:errors path="firstName" cssClass="error" />
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <form:label path="lastName">Last name</form:label>
-                                        <form:input path="lastName" type="text" class="form-control" id="validationServer02"
-                                               placeholder="Last name" />
+                                        <form:input path="lastName" type="text" class="form-control"
+                                                    id="validationServer02"
+                                                    placeholder="Last name"/>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <form:label path="passport">Passport</form:label>
-                                        <form:input path="passport" type="text" class="form-control" id="validationServer03"
-                                               placeholder="Passport" />
+                                        <form:input path="passport" type="text" class="form-control"
+                                                    id="validationServer03"
+                                                    placeholder="Passport"/>
                                     </div>
-<%--                                    <div class="col-md-6 mb-3">--%>
-<%--                                        <form:label path="dateOfBirth">Date of Birth</form:label>--%>
-<%--                                        <form:input path="dateOfBirth" type="text" class="form-control" id="validationServer04"--%>
-<%--                                               placeholder="Date of Birth" />--%>
-<%--                                    </div>--%>
+                                        <%--                                    <div class="col-md-6 mb-3">--%>
+                                        <%--                                        <form:label path="dateOfBirth">Date of Birth</form:label>--%>
+                                        <%--                                        <form:input path="dateOfBirth" type="text" class="form-control" id="validationServer04"--%>
+                                        <%--                                               placeholder="Date of Birth" />--%>
+                                        <%--                                    </div>--%>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <form:label path="phone">Phone</form:label>
-                                        <form:input path="phone" type="text" class="form-control" id="validationServer05"
-                                               placeholder="Phone"/>
+                                        <form:input path="phone" type="text" class="form-control"
+                                                    id="validationServer05"
+                                                    placeholder="Phone"/>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <form:label path="email">E-Mail</form:label>
-                                        <form:input path="email" type="text" class="form-control" id="validationServer06"
-                                               placeholder="E-Mail"/>
+                                        <form:input path="email" type="text" class="form-control"
+                                                    id="validationServer06"
+                                                    placeholder="E-Mail"/>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <form:label path="address">Address</form:label>
                                     <form:input path="address" type="text" class="form-control" id="validationServer07"
-                                           placeholder="Address"/>
+                                                placeholder="Address"/>
                                 </div>
                                 <div class="mb-3">
                                     <form:label path="ssn">Social security number</form:label>
                                     <form:input path="ssn" type="text" class="form-control" id="validationServer08"
-                                           placeholder="Social security number" />
+                                                placeholder="Social security number"/>
                                 </div>
                             </div>
                             <div class="modal-footer">
 
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="submit" value="<spring:message text="Add Case"/>" class="btn btn-primary">Add</button>
+                                <c:if test="${!empty patient.id}">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="submit" value="<spring:message text="Edit Patient"/>"
+                                            class="btn btn-primary">Add
+                                    </button>
+                                </c:if>
+                                <c:if test="${empty patient.id}">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="submit" value="<spring:message text="Add New Patient"/>"
+                                            class="btn btn-primary">Add
+                                    </button>
+                                </c:if>
+<%--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>--%>
+<%--                                <button type="submit" value="<spring:message text="Add New Patient"/>"--%>
+<%--                                        class="btn btn-primary">Add--%>
+<%--                                </button>--%>
                             </div>
                         </div>
                     </div>
@@ -116,7 +139,7 @@
             </form:form>
         </div>
     </div>
-    </div>
+</div>
 
 </div>
 </body>
