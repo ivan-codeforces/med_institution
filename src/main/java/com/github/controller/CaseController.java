@@ -4,14 +4,13 @@ import com.github.model.CaseEntity;
 import com.github.model.PatientEntity;
 import com.github.service.CaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CaseController {
-    private CaseService caseService;
+    private final CaseService caseService;
 
     @Autowired
     public CaseController(CaseService caseService) {

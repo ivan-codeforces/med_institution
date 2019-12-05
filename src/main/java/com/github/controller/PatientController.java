@@ -14,18 +14,25 @@ import java.util.List;
 
 @Controller
 public class PatientController {
-    private PatientService patientService;
-    private CaseService caseService;
+    private final PatientService patientService;
+    private final CaseService caseService;
 
     @Autowired
-    public PatientController(PatientService patientService) {
+    public PatientController(PatientService patientService, CaseService caseService) {
         this.patientService = patientService;
-    }
-
-
-    public PatientController(CaseService caseService) {
         this.caseService = caseService;
     }
+
+
+
+//    public PatientController(PatientService patientService) {
+//        this.patientService = patientService;
+//    }
+//
+//
+//    public PatientController(CaseService caseService) {
+//        this.caseService = caseService;
+//    }
 
     @PostMapping(value = "patients")
     public String addPatient(@ModelAttribute("patient") PatientEntity patient) {
