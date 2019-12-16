@@ -23,6 +23,7 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public void addPatient(PatientEntity patient) {
+
         this.patientDAO.addPatient(patient);
     }
 

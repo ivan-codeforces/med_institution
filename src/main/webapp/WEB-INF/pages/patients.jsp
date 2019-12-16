@@ -42,8 +42,7 @@
             </table>
         </div>
         <div class="col-md-3 mb-3 px-4 py-4">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">New Patient
-            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">New Patient</button>
 
             <!-- Modal -->
 
@@ -119,7 +118,7 @@
                                 <c:if test="${!empty patient.id}">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                     <button type="submit" value="<spring:message text="Edit Patient"/>"
-                                            class="btn btn-primary">Add
+                                            class="btn btn-primary">Edit
                                     </button>
                                 </c:if>
                                 <c:if test="${empty patient.id}">

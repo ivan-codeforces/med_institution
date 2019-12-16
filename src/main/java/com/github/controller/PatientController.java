@@ -2,13 +2,17 @@ package com.github.controller;
 
 import com.github.bo.CaseBo;
 import com.github.bo.PatientBo;
+import com.github.model.CaseEntity;
 import com.github.model.PatientEntity;
 import com.github.service.CaseService;
 import com.github.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -23,9 +27,10 @@ public class PatientController {
         this.caseService = caseService;
     }
 
-    @PostMapping(value = "patients")
-    public String addPatient(@ModelAttribute("patient") PatientEntity patient) {
+    @PostMapping(value = "/patients")
+    public String addPatient(@ModelAttribute("patient") PatientEntity patient, CaseEntity caseEntity) {
         patientService.addPatient(patient);
+        caseService.addCase(caseEntity, patient.getId());
         return "redirect:/patients";
     }
 

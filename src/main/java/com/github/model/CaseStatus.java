@@ -3,7 +3,8 @@ package com.github.model;
 public enum CaseStatus {
     INITIAL("INITIAL"),
     IN_PROGRESS("IN PROGRESS"),
-    FINALIZED("FINALIZED");
+    FINALIZED("FINALIZED"),
+    REOPENED("REOPENED");
 
     private String text;
 
