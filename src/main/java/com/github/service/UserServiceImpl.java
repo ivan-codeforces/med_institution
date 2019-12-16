@@ -1,9 +1,9 @@
 package com.github.service;
 
 import com.github.bo.UserBo;
-import com.github.dao.RoleDAO;
+//import com.github.dao.RoleDAO;
 import com.github.dao.UserDAO;
-import com.github.model.Role;
+//import com.github.model.Role;
 import com.github.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,23 +19,23 @@ import java.util.Set;
 @Transactional
 public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
-    private final RoleDAO roleDAO;
+//    private final RoleDAO roleDAO;
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserDAO userDAO, RoleDAO roleDAO) {
+    public UserServiceImpl(UserDAO userDAO) {
         this.userDAO = userDAO;
-        this.roleDAO = roleDAO;
+//        this.roleDAO = roleDAO;
     }
 
     @Override
     public void save(UserEntity user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Set<Role> roles = new HashSet<>();
-        roles.add(roleDAO.getOne(1L));
-        user.setRoles(roles);
-        userDAO.save(user);
+//        Set<Role> roles = new HashSet<>();
+//        roles.add(roleDAO.getOne(1L));
+//        user.setRoles(roles);
+//        userDAO.save(user);
     }
 
     @Override

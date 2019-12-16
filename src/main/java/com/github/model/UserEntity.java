@@ -43,26 +43,26 @@ public class UserEntity {
     @Transient
     private String confirmPassword;
 
-    @ManyToMany
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+//    @ManyToMany
+//    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "USER_ID"),
+//            inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
+//    private Set<Role> roles;
 
     public Set<CaseEntity> getCase_idU() {
         return case_idU;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
+//    public void setRoles(Set<Role> roles) {
+//        this.roles = roles;
+//    }
 
     public void setCase_idU(Set<CaseEntity> case_idU) {
         this.case_idU = case_idU;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
+//    public Set<Role> getRoles() {
+//        return roles;
+//    }
 
     public int getId() {
         return id;

@@ -23,7 +23,7 @@ public class UserController {
     public UserController(UserService userService, SecurityService securityService, UserValidator userValidator) {
         this.userService = userService;
         this.securityService = securityService;
-        this.userValidator=userValidator;
+        this.userValidator = userValidator;
     }
 
     @GetMapping(value = "users")
