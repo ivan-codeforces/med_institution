@@ -30,7 +30,7 @@ public class CaseEntity {
     private CaseStatus status;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CURRENT_USER")
+    @JoinColumn(name = "CURRENT_DOCTOR")
     private UserEntity ownerU;
 
     @ManyToOne(cascade = CascadeType.ALL)

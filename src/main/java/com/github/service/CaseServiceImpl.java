@@ -3,9 +3,10 @@ package com.github.service;
 import com.github.bo.CaseBo;
 import com.github.dao.CaseDAO;
 import com.github.model.CaseEntity;
-//import com.github.model.CaseStatus;
+import com.github.model.CaseStatus;
 import com.github.model.PatientEntity;
 import com.github.util.CaseMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,21 +18,22 @@ import java.util.List;
 @Service
 @Transactional
 public class CaseServiceImpl implements CaseService {
-    private CaseDAO medCaseDAO;
+    private final CaseDAO medCaseDAO;
+
+    @Autowired
+    public CaseServiceImpl(CaseDAO medCaseDAO) {
+        this.medCaseDAO = medCaseDAO;
+    }
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void setMedCaseDAO(CaseDAO medCaseDAO) {
-        this.medCaseDAO = medCaseDAO;
-    }
-
     @Override
-    public void addCase(CaseEntity medCase, long patientId) {
+    public void addCase(CaseEntity medCase, int patientId) {
 
         PatientEntity patient = entityManager.find(PatientEntity.class, patientId);
-//        medCase.setOwnerP(patient);
-//        medCase.setStatus(CaseStatus.INITIAL);
+        medCase.setOwnerP(patient);
+        medCase.setStatus(CaseStatus.INITIAL);
         this.medCaseDAO.addCase(medCase, patient);
     }
 
@@ -66,6 +68,12 @@ public class CaseServiceImpl implements CaseService {
     }
 
     @Override
+    public List<CaseBo> listCasesByPage(int page) {
+
+        return null;
+    }
+
+    @Override
     public List<CaseBo> listCasesByPatientId(PatientEntity patient) {
         return listCasesByPatientId(patient.getId());
     }
@@ -81,6 +89,19 @@ public class CaseServiceImpl implements CaseService {
             }
         }
         return caseBoList;
+    }
+
+    @Override
+    public void takeToWork(String caseId, String targetStatus) {
+
+        CaseEntity medCase = entityManager.find(CaseEntity.class, caseId);
+        if (medCase.getStatus() == CaseStatus.INITIAL) {
+            medCase.setStatus(CaseStatus.IN_PROGRESS);
+        } else if (medCase.getStatus()==CaseStatus.IN_PROGRESS){
+            medCase.setStatus(CaseStatus.FINALIZED);
+        } else if (medCase.getStatus()==CaseStatus.FINALIZED){
+            medCase.setStatus(CaseStatus.REOPENED);
+        }
     }
 
 }

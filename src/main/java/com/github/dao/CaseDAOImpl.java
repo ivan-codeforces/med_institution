@@ -6,15 +6,17 @@ import com.github.util.GeneratorCaseId;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public class CaseDAOImpl implements CaseDAO {
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
-    public void setSessionFactory(SessionFactory sessionFactory) {
+    @Autowired
+    public CaseDAOImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
@@ -28,7 +30,7 @@ public class CaseDAOImpl implements CaseDAO {
     public CaseEntity lastCaseId(){
         Session session = this.sessionFactory.getCurrentSession();
 
-        return (CaseEntity) session.createQuery("select max (id) from CaseEntity").getSingleResult();
+        return (CaseEntity) session.createQuery("select iselect max (id) from CaseEntity").getSingleResult();
     }
 
     @Override
@@ -69,6 +71,16 @@ public class CaseDAOImpl implements CaseDAO {
     public CaseEntity getCaseById(String id) {
         Session session = this.sessionFactory.getCurrentSession();
 
-        return session.load(CaseEntity.class, id);
+        return session.get(CaseEntity.class, id);
+    }
+
+    @Override
+    public void takeToWork(CaseEntity medCase) {
+        Session session = this.sessionFactory.getCurrentSession();
+//        if (medCase.getStatus().equals("INITIAL")){
+            session.update(medCase);
+//        } else if (medCase.getStatus().equals("IN PROGRESS")){
+//
+//        }
     }
 }

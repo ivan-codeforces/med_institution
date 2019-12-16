@@ -7,6 +7,12 @@ import java.util.List;
 
 public interface UserService {
     UserBo getUserById(int id);
+
     List<UserBo> listUsers();
+
+    void save(UserEntity user);
+
+    UserEntity findByUsername(String username);
+
     UserBo convertUserToUserBo(UserEntity user);
 }

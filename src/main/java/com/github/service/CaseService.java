@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CaseService {
 
-    void addCase(CaseEntity medCase, long id);
+    void addCase(CaseEntity medCase, int id);
 
     void removeCase(String id);
 
@@ -18,7 +18,11 @@ public interface CaseService {
 
     List<CaseBo> listCases();
 
+    List<CaseBo> listCasesByPage(int page);
+
     List<CaseBo> listCasesByPatientId(PatientEntity patient);
 
     List<CaseBo> listCasesByPatientId(int patient);
+
+    void takeToWork(String caseId, String targetStatus);
 }

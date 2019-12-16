@@ -17,4 +17,6 @@ public interface CaseDAO {
     void updateCase(CaseEntity medCase);
 
     CaseEntity getCaseById(String id);
+
+    void takeToWork(CaseEntity medCase);
 }

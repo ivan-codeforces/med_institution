@@ -4,6 +4,7 @@ import com.github.bo.PatientBo;
 import com.github.dao.PatientDAO;
 import com.github.model.PatientEntity;
 import com.github.util.PatientMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,31 +14,33 @@ import java.util.List;
 @Service
 @Transactional
 public class PatientServiceImpl implements PatientService {
-    private PatientDAO patientDAO;
+    private final PatientDAO patientDAO;
 
-    public void setPatientDAO(PatientDAO patientDAO) {
+    @Autowired
+    public PatientServiceImpl(PatientDAO patientDAO) {
         this.patientDAO = patientDAO;
     }
 
     @Override
     public void addPatient(PatientEntity patient) {
+
         this.patientDAO.addPatient(patient);
     }
 
     @Override
-    public void removePatient(int id){
+    public void removePatient(int id) {
 
         this.patientDAO.removePatient(id);
     }
 
     @Override
-    public void updatePatient(PatientEntity patient){
+    public void updatePatient(PatientEntity patient) {
 
         this.patientDAO.updatePatient(patient);
     }
 
     @Override
-    public PatientBo getPatientById(int id){
+    public PatientBo getPatientById(int id) {
         PatientEntity patientById = this.patientDAO.getPatientById(id);
 
         return PatientMapper.convertPatientToPatientBo(patientById);
