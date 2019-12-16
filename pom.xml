@@ -22,7 +22,7 @@
     <!-- Versions -->
     <spring.version>5.2.0.RELEASE</spring.version>
     <springSecurity.version>5.2.0.RELEASE</springSecurity.version>
-    <spring-data-jpa.version>1.8.2.RELEASE</spring-data-jpa.version>
+    <spring-data-jpa.version>1.11.23.RELEASE</spring-data-jpa.version>
     <hibernate-core.version>5.4.8.Final</hibernate-core.version>
     <hibernate-entitymanager.version>5.4.8.Final</hibernate-entitymanager.version>
     <javax.servlet.version>1.2</javax.servlet.version>
