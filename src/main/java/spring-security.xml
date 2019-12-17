@@ -35,14 +35,14 @@
 
     </http>
 
-<!--    <jdbc-user-service id= "jdbcUserService" data-source-ref= "dataSource"-->
-<!--                       users-by-username-query= "SELECT USERNAME, PASSWORD, ENABLED FROM USER WHERE USERNAME=?"-->
-<!--                       authorities-by-username-query= "SELECT U.USERNAME, A.AUTHORITY-->
-<!--        	 FROM AUTHORITIES A, USER U WHERE U.USERNAME = A.USERNAME AND U.USERNAME = ? "/>-->
+    <!--    <jdbc-user-service id= "jdbcUserService" data-source-ref= "dataSource"-->
+    <!--                       users-by-username-query= "SELECT USERNAME, PASSWORD, ENABLED FROM USER WHERE USERNAME=?"-->
+    <!--                       authorities-by-username-query= "SELECT U.USERNAME, A.AUTHORITY-->
+    <!--        	 FROM AUTHORITIES A, USER U WHERE U.USERNAME = A.USERNAME AND U.USERNAME = ? "/>-->
 
-<!--    <authentication-manager alias= "authenticationManager">-->
-<!--        <authentication-provider user-service-ref= "jdbcUserService"/>-->
-<!--    </authentication-manager>-->
+    <!--    <authentication-manager alias= "authenticationManager">-->
+    <!--        <authentication-provider user-service-ref= "jdbcUserService"/>-->
+    <!--    </authentication-manager>-->
 
 
 </beans:beans>
