@@ -6,12 +6,9 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+
     <context:component-scan base-package="com.github"/>
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
 
     <!-- Database Information -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
@@ -45,13 +42,26 @@
 
     <context:component-scan base-package="com.github"/>
 
+<!--    <bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy"/>-->
+
+
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
 
+    <bean id="dsa" class="com.github.service.AIMpl"/>
+
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
 
 </beans>

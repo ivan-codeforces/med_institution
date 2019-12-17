@@ -34,6 +34,7 @@
                         <a href="/patientData/${medCase.ownerP.id}">${medCase.ownerP.firstName} ${medCase.ownerP.lastName}</a>
                     </td>
                     <td>${medCase.status}</td>
+<%--                    <td>YearsCalculator.calcYears(${medCase.status})</td>--%>
                     <td><a href="/userData/${medCase.ownerU.id}">${medCase.ownerU.username}</a></td>
                     <td><a href="<c:url value='/editCase/${medCase.id}'/>">Edit</a></td>
                     <td><a href="<c:url value='/remove/${medCase.id}'/>">Delete</a></td>
