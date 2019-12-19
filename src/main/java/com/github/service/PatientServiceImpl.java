@@ -11,10 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 @Service
 @Transactional
 public class PatientServiceImpl implements PatientService {
     private final PatientDAO patientDAO;
+    private static final Logger LOGGER = Logger.getLogger(PatientServiceImpl.class);
 
     @Autowired
     public PatientServiceImpl(PatientDAO patientDAO) {
@@ -25,23 +28,27 @@ public class PatientServiceImpl implements PatientService {
     public void addPatient(PatientEntity patient) {
 
         this.patientDAO.addPatient(patient);
+        LOGGER.info("Add patient: id - " + patient.getId());
     }
 
     @Override
     public void removePatient(int id) {
 
         this.patientDAO.removePatient(id);
+        LOGGER.info("Remove patient: id - " + id);
     }
 
     @Override
     public void updatePatient(PatientEntity patient) {
 
         this.patientDAO.updatePatient(patient);
+        LOGGER.info("Update patient: id - " + patient.getId());
     }
 
     @Override
     public PatientBo getPatientById(int id) {
         PatientEntity patientById = this.patientDAO.getPatientById(id);
+        LOGGER.info("Get patient by id - " + id);
 
         return PatientMapper.convertPatientToPatientBo(patientById);
     }
@@ -67,6 +74,7 @@ public class PatientServiceImpl implements PatientService {
             patientBoList.add(PatientMapper.convertPatientToPatientBo(p));
         }
 
+        LOGGER.info("Receive list of patients: " + patientBoList.size() + " patients");
         return patientBoList;
     }
 

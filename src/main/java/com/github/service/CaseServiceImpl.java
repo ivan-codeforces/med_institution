@@ -14,11 +14,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 @Service
 @Transactional
 public class CaseServiceImpl implements CaseService {
     private final CaseDAO medCaseDAO;
+
+    private static final Logger LOGGER = Logger.getLogger(CaseServiceImpl.class);
 
     @Autowired
     public CaseServiceImpl(CaseDAO medCaseDAO) {
@@ -35,17 +38,20 @@ public class CaseServiceImpl implements CaseService {
         medCase.setOwnerP(patient);
         medCase.setStatus(CaseStatus.INITIAL);
         this.medCaseDAO.addCase(medCase, patient);
+        LOGGER.info("Created case");
     }
 
     @Override
     public void removeCase(String id) {
         this.medCaseDAO.removeCase(id);
+        LOGGER.info("Deleted case: id - %s" + id);
     }
 
     @Override
     public void updateCase(CaseEntity medCase) {
 
         this.medCaseDAO.updateCase(medCase);
+        LOGGER.info("Update Case: id - %s" + medCase.getId());
     }
 
     @Override
@@ -88,10 +94,14 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public void getInWork(CaseEntity medCase) {
         if (medCase.getStatus().equals("INITIAL")) {
+    public void takeToWork(String caseId, String targetStatus) {
+
+        CaseEntity medCase = entityManager.find(CaseEntity.class, caseId);
+        if (medCase.getStatus() == CaseStatus.INITIAL) {
             medCase.setStatus(CaseStatus.IN_PROGRESS);
-        } else if (medCase.getStatus().equals("IN PROGRESS")){
+        } else if (medCase.getStatus() == CaseStatus.IN_PROGRESS) {
             medCase.setStatus(CaseStatus.FINALIZED);
-        } else if (medCase.getStatus().equals("FINALIZED")){
+        } else if (medCase.getStatus() == CaseStatus.FINALIZED) {
             medCase.setStatus(CaseStatus.REOPENED);
         }
 

@@ -1,33 +1,23 @@
-package com.github.model;
+package com.github.bo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.sql.Timestamp;
 
-@Entity
-@Table(name = "appointment")
-public class AppointmentEntity {
+public class AppointmentBo {
 
-    @Id
-    @Column(name = "ID")
     private int id;
-
-    @Column(name = "CASE_ID")
     private String medCaseId;
-
-    @Column(name = "START_DATE")
     private Timestamp startDate;
-
-    @Column(name = "END_DATE")
     private Timestamp endDate;
-
-    @Column(name = "DESCRIPTION")
     private String description;
-
-    @Column(name = "STATUS")
     private String status;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getMedCaseId() {
         return medCaseId;
@@ -67,13 +57,5 @@ public class AppointmentEntity {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
