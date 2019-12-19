@@ -18,5 +18,5 @@ public interface CaseDAO {
 
     CaseEntity getCaseById(String id);
 
-    void takeToWork(CaseEntity medCase);
+    void getInWork(CaseEntity medCase);
 }

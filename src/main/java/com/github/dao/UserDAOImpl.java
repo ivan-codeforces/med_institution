@@ -1,13 +1,9 @@
 package com.github.dao;
 
-//import com.github.model.Role;
 import com.github.model.UserEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -35,11 +31,4 @@ public class UserDAOImpl implements UserDAO {
 
         return session.createQuery("from UserEntity").list();
     }
-
-    @Override
-    public UserEntity findByUsername(String username) {
-        return null;
-    }
-
-
 }

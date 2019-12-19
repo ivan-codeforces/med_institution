@@ -7,7 +7,8 @@
 </head>
 
 <body>
-<a class="nav-link" href="<c:url value="/login"/>">Sing in</a>
+<jsp:include page="WEB-INF/pages/fragments/bodyHeader.jsp"/>
+
 </body>
 </html>
 

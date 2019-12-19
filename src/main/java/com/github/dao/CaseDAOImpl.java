@@ -1,6 +1,7 @@
 package com.github.dao;
 
 import com.github.model.CaseEntity;
+import com.github.model.CaseStatus;
 import com.github.model.PatientEntity;
 import com.github.util.GeneratorCaseId;
 import org.hibernate.Session;
@@ -75,7 +76,7 @@ public class CaseDAOImpl implements CaseDAO {
     }
 
     @Override
-    public void takeToWork(CaseEntity medCase) {
+    public void getInWork(CaseEntity medCase) {
         Session session = this.sessionFactory.getCurrentSession();
 //        if (medCase.getStatus().equals("INITIAL")){
             session.update(medCase);

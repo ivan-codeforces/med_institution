@@ -68,12 +68,6 @@ public class CaseServiceImpl implements CaseService {
     }
 
     @Override
-    public List<CaseBo> listCasesByPage(int page) {
-
-        return null;
-    }
-
-    @Override
     public List<CaseBo> listCasesByPatientId(PatientEntity patient) {
         return listCasesByPatientId(patient.getId());
     }
@@ -92,16 +86,15 @@ public class CaseServiceImpl implements CaseService {
     }
 
     @Override
-    public void takeToWork(String caseId, String targetStatus) {
-
-        CaseEntity medCase = entityManager.find(CaseEntity.class, caseId);
-        if (medCase.getStatus() == CaseStatus.INITIAL) {
+    public void getInWork(CaseEntity medCase) {
+        if (medCase.getStatus().equals("INITIAL")) {
             medCase.setStatus(CaseStatus.IN_PROGRESS);
-        } else if (medCase.getStatus()==CaseStatus.IN_PROGRESS){
+        } else if (medCase.getStatus().equals("IN PROGRESS")){
             medCase.setStatus(CaseStatus.FINALIZED);
-        } else if (medCase.getStatus()==CaseStatus.FINALIZED){
+        } else if (medCase.getStatus().equals("FINALIZED")){
             medCase.setStatus(CaseStatus.REOPENED);
         }
+
     }
 
 }

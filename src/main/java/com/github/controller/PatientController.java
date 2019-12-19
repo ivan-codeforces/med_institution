@@ -18,8 +18,8 @@ import java.util.List;
 
 @Controller
 public class PatientController {
-    private final PatientService patientService;
-    private final CaseService caseService;
+    private PatientService patientService;
+    private CaseService caseService;
 
     @Autowired
     public PatientController(PatientService patientService, CaseService caseService) {

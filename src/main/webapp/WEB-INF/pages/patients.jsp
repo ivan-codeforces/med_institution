@@ -56,7 +56,7 @@
                             <div class="modal-header">
                                 <h5 class="modal-title" id="newPatient">Add new Patient</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times</span>
+                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
@@ -82,12 +82,11 @@
                                                     id="validationServer03"
                                                     placeholder="Passport"/>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <form:label path="dateOfBirth">Date of Birth</form:label>
-                                        <form:input path="dateOfBirth" type="text" class="form-control"
-                                                    id="validationServer04"
-                                                    placeholder="Date of Birth"/>
-                                    </div>
+                                        <%--                                    <div class="col-md-6 mb-3">--%>
+                                        <%--                                        <form:label path="dateOfBirth">Date of Birth</form:label>--%>
+                                        <%--                                        <form:input path="dateOfBirth" type="text" class="form-control" id="validationServer04"--%>
+                                        <%--                                               placeholder="Date of Birth" />--%>
+                                        <%--                                    </div>--%>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">

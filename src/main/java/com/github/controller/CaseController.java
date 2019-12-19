@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 public class CaseController {
-    private final CaseService caseService;
+    private CaseService caseService;
 
     @Autowired
     public CaseController(CaseService caseService) {
@@ -29,11 +29,9 @@ public class CaseController {
         return "redirect:/patientData/${patient.id}";
     }
 
-    @PostMapping(value = "/updateStatus/caseId/{caseId}/targetStatus/{targetStatus}")
-    public String getInWork(@PathVariable("caseId") String caseId, @PathVariable("targetStatus") String targetStatus){
-
-        caseService.takeToWork(caseId, targetStatus);
-
+    @PostMapping(value = "/caseData")
+    public String getInWork(@ModelAttribute("medCase") CaseEntity medCase){
+        caseService.getInWork(medCase);
         return "redirect:/caseData/${medCase.id}";
     }
 

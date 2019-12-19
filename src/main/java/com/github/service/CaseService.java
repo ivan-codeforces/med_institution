@@ -18,11 +18,9 @@ public interface CaseService {
 
     List<CaseBo> listCases();
 
-    List<CaseBo> listCasesByPage(int page);
-
     List<CaseBo> listCasesByPatientId(PatientEntity patient);
 
     List<CaseBo> listCasesByPatientId(int patient);
 
-    void takeToWork(String caseId, String targetStatus);
+    void getInWork(CaseEntity medCase);
 }
