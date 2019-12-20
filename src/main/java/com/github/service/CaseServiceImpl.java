@@ -14,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.log4j.Logger;
 
 @Service
@@ -33,6 +34,7 @@ public class CaseServiceImpl implements CaseService {
 
     @Override
     public void addCase(CaseEntity medCase, int patientId) {
+        LOGGER.info("addCase - entryPoint");
 
         PatientEntity patient = entityManager.find(PatientEntity.class, patientId);
         medCase.setOwnerP(patient);
@@ -44,20 +46,20 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public void removeCase(String id) {
         this.medCaseDAO.removeCase(id);
-        LOGGER.info("Deleted case: id - %s" + id);
+        LOGGER.info(String.format("Deleted case: id - %s", id));
     }
 
     @Override
     public void updateCase(CaseEntity medCase) {
 
         this.medCaseDAO.updateCase(medCase);
-        LOGGER.info("Update Case: id - %s" + medCase.getId());
+        LOGGER.info(String.format("Update Case: id - %s", medCase.getId()));
     }
 
     @Override
     public CaseBo getCaseById(String id) {
         CaseEntity caseById = this.medCaseDAO.getCaseById(id);
-
+        LOGGER.info(String.format("getCaseById - %s", id));
         return CaseMapper.convertCaseToCaseBo(caseById);
     }
 
@@ -92,8 +94,6 @@ public class CaseServiceImpl implements CaseService {
     }
 
     @Override
-    public void getInWork(CaseEntity medCase) {
-        if (medCase.getStatus().equals("INITIAL")) {
     public void takeToWork(String caseId, String targetStatus) {
 
         CaseEntity medCase = entityManager.find(CaseEntity.class, caseId);
@@ -104,7 +104,6 @@ public class CaseServiceImpl implements CaseService {
         } else if (medCase.getStatus() == CaseStatus.FINALIZED) {
             medCase.setStatus(CaseStatus.REOPENED);
         }
-
     }
 
 }

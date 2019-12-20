@@ -1,25 +1,26 @@
 package com.github.controller;
 
-import com.github.bo.CaseBo;
 import com.github.model.CaseEntity;
 import com.github.model.PatientEntity;
+import com.github.service.CasePagingService;
 import com.github.service.CaseService;
+import com.github.util.ResultOfPagingCalculations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 
 @Controller
 public class CaseController {
-    private CaseService caseService;
+    private final CaseService caseService;
+    private CasePagingService casePagingService;
 
     @Autowired
-    public CaseController(CaseService caseService) {
+    public CaseController(CaseService caseService, CasePagingService casePagingService) {
         this.caseService = caseService;
+        this.casePagingService = casePagingService;
     }
 
     @PostMapping(value = "/patientData")
@@ -29,43 +30,24 @@ public class CaseController {
         return "redirect:/patientData/${patient.id}";
     }
 
-    @PostMapping(value = "/caseData")
-    public String getInWork(@ModelAttribute("medCase") CaseEntity medCase){
-        caseService.getInWork(medCase);
+    @PostMapping(value = "/updateStatus/{caseId}")
+    public String takeToWork(@PathVariable("caseId") String caseId, String targetStatus) {
+
+        caseService.takeToWork(caseId, targetStatus);
+
         return "redirect:/caseData/${medCase.id}";
     }
 
-//    @GetMapping(value = "medCases")
-//    public String listCases(Model model) {
-//        model.addAttribute("medCase");
-//        model.addAttribute("listCases", this.caseService.listCases());
-//
-//        return "medCases";
-//    }
 
     @GetMapping(value = "medCases")
     public ModelAndView listCases(@RequestParam(required = false) Integer page) {
         ModelAndView modelAndView = new ModelAndView("medCases");
 
-        List<CaseBo> medCases = caseService.listCases();
-        PagedListHolder<CaseBo> pagedListHolder = new PagedListHolder<CaseBo>(medCases);
-        pagedListHolder.setPageSize(10);
+        ResultOfPagingCalculations result = casePagingService.findPage(page);
 
-        modelAndView.addObject("maxPages", pagedListHolder.getPageCount());
-
-        if(page==null || page < 1 || page > pagedListHolder.getPageCount())
-            page=1;
-
+        modelAndView.addObject("maxPages", result.getCountPage());
         modelAndView.addObject("page", page);
-
-        if(page > pagedListHolder.getPageCount()){
-            pagedListHolder.setPage(0);
-            modelAndView.addObject("listCases", pagedListHolder.getPageList());
-        }
-        else if(page <= pagedListHolder.getPageCount()) {
-            pagedListHolder.setPage(page-1);
-            modelAndView.addObject("listCases", pagedListHolder.getPageList());
-        }
+        modelAndView.addObject("listCases", result.getListCases());
 
         modelAndView.addObject("medCase", new CaseEntity());
 

@@ -23,4 +23,21 @@ public final class PatientMapper {
 
         return patientBo;
     }
+
+    public static PatientEntity convertPatientBoToPatientEntity(PatientBo patientBo){
+        PatientEntity patientEntity = new PatientEntity();
+
+        patientEntity.setId(patientBo.getId());
+        patientEntity.setFirstName(patientBo.getFirstName());
+        patientEntity.setLastName(patientBo.getLastName());
+        patientEntity.setDateOfBirth(patientBo.getDateOfBirth());
+        patientEntity.setPassport(patientBo.getPassport());
+        patientEntity.setAddress(patientBo.getAddress());
+        patientEntity.setEmail(patientBo.getEmail());
+        patientEntity.setPhone(patientBo.getPhone());
+        patientEntity.setComment(patientBo.getComment());
+        patientEntity.setSsn(patientBo.getSsn());
+
+        return patientEntity;
+    }
 }

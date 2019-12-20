@@ -19,7 +19,7 @@
                 <div class="box d-flex flex-column justify-content-between">
                     <div class="item item-1 flex-shrink-0">Patient</div>
                     <br>
-                    <div class="item item-2 flex-shrink-0">Age</div>
+                    <div class="item item-2 flex-shrink-0">Date of Birth</div>
                     <br>
                     <div class="item item-3 flex-shrink-0">Doctor</div>
                 </div>
@@ -28,7 +28,7 @@
                 <div class="box d-flex flex-column justify-content-between">
                     <div class="item item-1 flex-shrink-0">${medCase.ownerP.firstName} ${medCase.ownerP.lastName}</div>
                     <br>
-                    <div class="item item-2 flex-shrink-0">2</div>
+                    <div class="item item-2 flex-shrink-0">${medCase.ownerP.dateOfBirth}</div>
                     <br>
                     <div class="item item-3 flex-shrink-0">${medCase.ownerU.username}</div>
                 </div>
@@ -39,6 +39,7 @@
                         <mark>${medCase.status}</mark>
                     </div>
                     <br>
+                    <c:url var="takeToWork" value="/updateStatus/"/>
                     <c:if test="${medCase.status=='INITIAL'}">
                         <form:form action="${medCase}" modelAttribute="medCase">
                             <button type="submit" value="<spring:message text="accept in work"/>"
@@ -63,11 +64,11 @@
             <div class="row">
                 <div class="col">
                     <div class="box d-flex flex-column justify-content-between">
-                        <div class="item item-1 flex-shrink-0">Patient</div>
+                        <div class="item item-1 flex-shrink-0">Diagnosis</div>
                         <br>
-                        <div class="item item-2 flex-shrink-0">Age</div>
+                        <div class="item item-2 flex-shrink-0">Comment</div>
                         <br>
-                        <div class="item item-3 flex-shrink-0">Doctor</div>
+
                     </div>
                 </div>
                 <div class="col">

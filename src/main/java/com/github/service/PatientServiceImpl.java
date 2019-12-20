@@ -26,16 +26,20 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public void addPatient(PatientEntity patient) {
+        LOGGER.info("addPatient - entryPoint");
 
-        this.patientDAO.addPatient(patient);
-        LOGGER.info("Add patient: id - " + patient.getId());
+        if (patient != null) {
+            LOGGER.info(String.format("Saving new patient to the database with id = %s", patient.getId()));
+            this.patientDAO.addPatient(patient);
+            LOGGER.info("addPatient - exitPoint");
+        }
     }
 
     @Override
     public void removePatient(int id) {
-
+        LOGGER.info("removePatient - entryPoint");
         this.patientDAO.removePatient(id);
-        LOGGER.info("Remove patient: id - " + id);
+        LOGGER.info(String.format("Removed patient: id - %d", id));
     }
 
     @Override
@@ -47,9 +51,11 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public PatientBo getPatientById(int id) {
-        PatientEntity patientById = this.patientDAO.getPatientById(id);
-        LOGGER.info("Get patient by id - " + id);
+        LOGGER.info("getPatientById - entryPoint");
 
+        PatientEntity patientById = this.patientDAO.getPatientById(id);
+
+        LOGGER.info("getPatientById - " + id);
         return PatientMapper.convertPatientToPatientBo(patientById);
     }
 
@@ -67,8 +73,10 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public List<PatientBo> listPatients() {
+        LOGGER.info("getPatientById - entryPoint");
         List<PatientEntity> patientList = this.patientDAO.listPatients();
 
+        LOGGER.info("received listPatients");
         List<PatientBo> patientBoList = new ArrayList<>(patientList.size());
         for (PatientEntity p : patientList) {
             patientBoList.add(PatientMapper.convertPatientToPatientBo(p));

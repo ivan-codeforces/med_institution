@@ -43,7 +43,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
     public boolean checkAppointment(int id) {
         Session session = this.sessionFactory.getCurrentSession();
         AppointmentEntity appointmentEntity = session.get(AppointmentEntity.class, id);
-        if (appointmentEntity.getId()==id){
+        if (appointmentEntity.getId() == id) {
             return true;
         }
         return false;

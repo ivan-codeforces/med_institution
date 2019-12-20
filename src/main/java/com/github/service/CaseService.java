@@ -22,5 +22,5 @@ public interface CaseService {
 
     List<CaseBo> listCasesByPatientId(int patient);
 
-    void getInWork(CaseEntity medCase);
+    void takeToWork(String caseId, String targetStatus);
 }

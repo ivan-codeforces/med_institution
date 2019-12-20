@@ -1,7 +1,6 @@
 package com.github.dao;
 
 import com.github.model.CaseEntity;
-import com.github.model.CaseStatus;
 import com.github.model.PatientEntity;
 import com.github.util.GeneratorCaseId;
 import org.hibernate.Session;
@@ -28,7 +27,7 @@ public class CaseDAOImpl implements CaseDAO {
         return session.createQuery("from CaseEntity").list();
     }
 
-    public CaseEntity lastCaseId(){
+    public CaseEntity lastCaseId() {
         Session session = this.sessionFactory.getCurrentSession();
 
         return (CaseEntity) session.createQuery("select iselect max (id) from CaseEntity").getSingleResult();
@@ -76,12 +75,8 @@ public class CaseDAOImpl implements CaseDAO {
     }
 
     @Override
-    public void getInWork(CaseEntity medCase) {
+    public void takeToWork(CaseEntity medCase) {
         Session session = this.sessionFactory.getCurrentSession();
-//        if (medCase.getStatus().equals("INITIAL")){
-            session.update(medCase);
-//        } else if (medCase.getStatus().equals("IN PROGRESS")){
-//
-//        }
+        session.update(medCase);
     }
 }
