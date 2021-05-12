@@ -21,7 +21,7 @@
 
     <!-- Versions -->
     <spring.version>5.2.0.RELEASE</spring.version>
-    <springSecurity.version>5.2.0.RELEASE</springSecurity.version>
+    <springSecurity.version>5.2.10.RELEASE</springSecurity.version>
     <spring-data-jpa.version>1.11.23.RELEASE</spring-data-jpa.version>
     <hibernate-core.version>5.4.8.Final</hibernate-core.version>
     <hibernate-entitymanager.version>5.4.8.Final</hibernate-entitymanager.version>
